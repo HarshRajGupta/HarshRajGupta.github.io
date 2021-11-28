@@ -30,12 +30,12 @@
 
 #my Contributions
 
-<img src="https://activity-graph.herokuapp.com/graph?username=harshrajgupta&theme=react-dark" alt="Yash's contribution graph(ig u should refresh🧐! or come back later🐱‍💻)">
+<img src="https://activity-graph.herokuapp.com/graph?username=harshrajgupta&theme=react-dark" alt="Harsh's contribution graph(ig u should refresh🧐! or come back later🐱‍💻)">
 <p align="center">
-<img height="192px" width="410px" src="https://github-readme-streak-stats.herokuapp.com/?user=conqryash007&theme=tokyonight" alt="ig u should refresh🧐! or come back later🐱‍💻" />
+<img height="192px" width="410px" src="https://github-readme-streak-stats.herokuapp.com/?user=HarshRajGupta&theme=tokyonight" alt="ig u should refresh🧐! or come back later🐱‍💻" />
 <img alt="Yash's most used language(ig u should refresh🧐! or come back later🐱‍💻)" src="https://github-readme-stats.vercel.app/api/top-langs/?username=HarshRajGupta&langs_count=8&count_private=true&layout=compact&theme=tokyonight&hide_border=true" height="192px" width="340px"/></a>
 </p>
-<p align="center"><img src="https://github-readme-stats.vercel.app/api?username=conqryash007&show_icons=true&theme=radical" alt="ig u should refresh🧐! or come back later🐱‍💻" /></p>
+<p align="center"><img src="https://github-readme-stats.vercel.app/api?username=HarshRajGupta&show_icons=true&theme=radical" alt="ig u should refresh🧐! or come back later🐱‍💻" /></p>
 <!--
 **HarshRajGupta/HarshRajGupta** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
