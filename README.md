@@ -5,7 +5,7 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=harshrajgupta&label=Profile%20views&color=0e75b6&style=flat" alt="harshrajgupta" /> </p>
 
-[![trophy](https://github-profile-trophy.vercel.app/?username=ryo-ma&theme=onedark)](https://github.com/harshrajgupta)
+[![trophy](https://github-profile-trophy.vercel.app/?username=harshrajgupta&theme=onedark)](https://github.com/harshrajgupta)
 
 
 
