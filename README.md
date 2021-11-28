@@ -1,12 +1,12 @@
-### Hi there 👋
+# Hi there 👋
 
 <h1 align="center"><img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif"><br>I'm Harsh Raj Gupta </h1>
 <h3 align="center">A passionate Developer and Competitive Programer from India</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=harshrajgupta&label=Profile%20views&color=0e75b6&style=flat" alt="harshrajgupta" /> </p>
 
-<p align="left"><img src="https://github-profile-trophy.vercel.app/?username=harshrajgupta&theme=react-dark" alt="harshrajgupta" /></p>
-<br><br>
+<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=harshrajgupta" alt="harshrajgupta" /></a> </p>
+
 <p align="left"> <a href="https://twitter.com/_harshrajgupta_" target="blank"><img src="https://img.shields.io/twitter/follow/_harshrajgupta_?logo=twitter&style=for-the-badge" alt="_harshrajgupta_" /></a> </p>
 <br>
 <h3 align="left">Connect with me:</h3>
