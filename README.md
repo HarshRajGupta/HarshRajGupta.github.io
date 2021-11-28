@@ -21,7 +21,7 @@
   <a href="https://discord.gg/harsh#2596" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="harsh#2596" height="30" width="40" /></a>
 </p>
 <br>
-# Languages and Tools
+<h2 align="left">Languages and Tools</h2>
 <p align="center"> 
   <a href="https://developer.android.com" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original-wordmark.svg" alt="android" width="40" height="40"/> </a>&nbsp;&nbsp;&nbsp; 
   <a href="https://www.cprogramming.com/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="40" height="40"/> </a> &nbsp;&nbsp;&nbsp;
