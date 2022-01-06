@@ -1,7 +1,7 @@
 # Hi there 👋
 <!-- ![img](https://user-images.githubusercontent.com/85221003/148334487-56cd1ef4-0794-4687-9641-7367a73515b3.gif) -->
 <h1 align="center"><img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif"><br>I'm Harsh Raj Gupta </h1>
-<img align="center" src="https://user-images.githubusercontent.com/85221003/148334487-56cd1ef4-0794-4687-9641-7367a73515b3.gif" alt="_harshrajgupta_" style="width: 100px; height: 50px; border-radius:25px"/>
+<img align="center" src="https://user-images.githubusercontent.com/85221003/148334487-56cd1ef4-0794-4687-9641-7367a73515b3.gif" alt="_harshrajgupta_" style="width: 500px; height: 50px; border-radius:25px"/>
 
 <h3 align="center">A passionate Developer and Competitive Programer from India</h3>
 
