@@ -3,10 +3,9 @@
 <h1 align="center">
   <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif">
   <br>
-  <img align="center" src="https://user-images.githubusercontent.com/85221003/148334487-56cd1ef4-0794-4687-9641-7367a73515b3.gif" alt="_harshrajgupta_"/>
-  <br>
   I'm Harsh Raj Gupta 
 </h1>
+<img align="center" src="https://user-images.githubusercontent.com/85221003/148334487-56cd1ef4-0794-4687-9641-7367a73515b3.gif" alt="HarshRajGupta"/>
 <br>
 <h3 align="center">A passionate Developer and Competitive Programer from India</h3>
 
