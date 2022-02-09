@@ -2,6 +2,7 @@
 <!-- ![img](https://user-images.githubusercontent.com/85221003/148334487-56cd1ef4-0794-4687-9641-7367a73515b3.gif) -->
 <h1 align="center">
   <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif">
+  <br>
   <img align="center" src="https://user-images.githubusercontent.com/85221003/148334487-56cd1ef4-0794-4687-9641-7367a73515b3.gif" alt="_harshrajgupta_" style="width: 500px; height: 500px; border-radius: 25px;/>
   <br>
   I'm Harsh Raj Gupta 
