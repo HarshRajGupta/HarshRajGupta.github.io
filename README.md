@@ -14,7 +14,7 @@
 <br>
 <div>
 - 🌱 I’m currently learning **Python**
-- 
+
 - 💬 Ask me about **C++, C, HTML, CSS, JavaScript**
 
 - 📫 How to reach me **1amHarsh.RG@gmail.com**
