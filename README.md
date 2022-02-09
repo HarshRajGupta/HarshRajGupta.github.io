@@ -12,7 +12,8 @@
 <h2 align="center">A passionate Developer and Competitive Programer from India</h2>
 <br>
 <div>
-# <br>
+  -
+  
   - 🌱 I’m currently learning **Python**
   
   - 💬 Ask me about **C++, C, HTML, CSS, JavaScript**
