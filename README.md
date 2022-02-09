@@ -14,11 +14,13 @@
 <br>
 <div>
 - 🌱 I’m currently learning **Python**
-
-- 💬 Ask me about **C++, C, HTML, CSS, JavaScript**
-
-- 📫 How to reach me **1amHarsh.RG@gmail.com**
-  <div/>
+  
+  - 🌱 I’m currently learning **Python**
+  
+  - 💬 Ask me about **C++, C, HTML, CSS, JavaScript**
+  
+  - 📫 How to reach me **1amHarsh.RG@gmail.com**
+</div>
 <br>
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=harshrajgupta&label=Profile%20views&color=0e75b6&style=flat" alt="harshrajgupta" /> </p>
 
