@@ -6,8 +6,8 @@
   I'm Harsh Raj Gupta 
 </h1>
 <!-- ![img-unscreen](https://user-images.githubusercontent.com/85221003/153200217-948f88a2-5c0a-461c-8c54-3a321684dee9.gif) -->
-<!-- <img align="center" src="https://user-images.githubusercontent.com/85221003/148334487-56cd1ef4-0794-4687-9641-7367a73515b3.gif" alt="HarshRajGupta"/> -->
-<img align="center" src="https://user-images.githubusercontent.com/85221003/153200217-948f88a2-5c0a-461c-8c54-3a321684dee9.gif" alt="HarshRajGupta"/>
+<img align="center" src="https://user-images.githubusercontent.com/85221003/148334487-56cd1ef4-0794-4687-9641-7367a73515b3.gif" alt="HarshRajGupta"/>
+<!-- <img align="center" src="https://user-images.githubusercontent.com/85221003/153200217-948f88a2-5c0a-461c-8c54-3a321684dee9.gif" alt="HarshRajGupta"/> -->
 <br>
 <h3 align="center">A passionate Developer and Competitive Programer from India</h3>
 
