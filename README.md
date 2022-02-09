@@ -11,14 +11,13 @@
 <!-- <img align="center" src="https://user-images.githubusercontent.com/85221003/153200217-948f88a2-5c0a-461c-8c54-3a321684dee9.gif" alt="HarshRajGupta"/> -->
 <br>
 <h3 align="center">A passionate Developer and Competitive Programer from India</h3>
-
-
+<br>
 - 🌱 I’m currently learning **Python**
 
 - 💬 Ask me about **C++, C, HTML, CSS, JavaScript**
 
 - 📫 How to reach me **1amHarsh.RG@gmail.com**
-
+<br>
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=harshrajgupta&label=Profile%20views&color=0e75b6&style=flat" alt="harshrajgupta" /> </p>
 
 [![trophy](https://github-profile-trophy.vercel.app/?username=harshrajgupta&theme=onedark)](https://github.com/harshrajgupta)
