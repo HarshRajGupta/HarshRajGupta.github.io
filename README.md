@@ -29,7 +29,7 @@
 
 <h2 align="left">Connect with me:</h2>
 
-<p align="justify">
+<div>
   <a href="https://twitter.com/_harshrajgupta_" target="blank">
     <img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" alt="_harshrajgupta_" height="30px" width="40px" />
   </a>&nbsp;&nbsp;&nbsp;
@@ -48,7 +48,7 @@
   <a href="https://discord.gg/harsh#2596" target="blank">
     <img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" alt="harsh#2596" height="30px" width="40px" />
   </a>
-</p>
+</div>
 <br>
 <h2 align="left">Languages and Tools</h2>
 <p align="justify"> 
