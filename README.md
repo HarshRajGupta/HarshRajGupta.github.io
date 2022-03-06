@@ -6,7 +6,9 @@
   <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="64px">
   , I'm Harsh Raj Gupta 
 </h1>
-<img align="center" src="https://user-images.githubusercontent.com/85221003/156927272-0c54db85-436c-4e95-b0b9-9959978a1f5d.gif" width="256px" alt="HarshRajGupta"/>
+<div align="center" width="100%">
+  <img align="center" src="https://user-images.githubusercontent.com/85221003/156927272-0c54db85-436c-4e95-b0b9-9959978a1f5d.gif" width="256px" alt="HarshRajGupta"/>
+</div>
 
 <!-- ![image](https://user-images.githubusercontent.com/85221003/156927272-0c54db85-436c-4e95-b0b9-9959978a1f5d.gif) -->
 
