@@ -6,9 +6,9 @@
   <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="64px">
   , I'm Harsh Raj Gupta 
 </h1>
-<img align="center" src="https://user-images.githubusercontent.com/85221003/148334487-56cd1ef4-0794-4687-9641-7367a73515b3.gif" alt="HarshRajGupta"/>
+<img align="center" src="https://user-images.githubusercontent.com/85221003/156927272-0c54db85-436c-4e95-b0b9-9959978a1f5d.gif" alt="HarshRajGupta"/>
 
-![image](https://user-images.githubusercontent.com/85221003/156927272-0c54db85-436c-4e95-b0b9-9959978a1f5d.gif)
+<!-- ![image](https://user-images.githubusercontent.com/85221003/156927272-0c54db85-436c-4e95-b0b9-9959978a1f5d.gif) -->
 
 <!-- ![img-unscreen](https://user-images.githubusercontent.com/85221003/153200217-948f88a2-5c0a-461c-8c54-3a321684dee9.gif) -->
 <!-- <img align="center" src="https://user-images.githubusercontent.com/85221003/153200217-948f88a2-5c0a-461c-8c54-3a321684dee9.gif" alt="HarshRajGupta"/> -->
