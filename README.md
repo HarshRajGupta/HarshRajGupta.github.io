@@ -45,7 +45,7 @@
     <img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="harsh.raj.gupta" height="30px" width="40px"/>
   </a>&nbsp;&nbsp;&nbsp;
   <a href="https://www.codechef.com/users/harsh_rg" target="blank">
-    <img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.1.0/icons/codechef.svg" alt="harsh_rg" height="30" width="40" />
+    <img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.1.0/icons/codechef.svg" alt="harsh_rg" height="30" width="40" color="#fff"/>
   </a>&nbsp;&nbsp;&nbsp;
   <a href="https://www.hackerrank.com/@h_raj220202" target="blank">
     <img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hackerrank.svg" alt="@h_raj220202" height="30px" width="40px" />
