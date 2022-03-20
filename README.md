@@ -4,7 +4,8 @@
 <h1 align="center">
   Hi
   <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="32px">
-  , [![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=I+am+Harsh;)]()
+  ,
+  [![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=Hey+Amigos;I+am+Saurav+Pati;Glad+to+see+you+here;Give+me+a+problem+and;..and+I'll+find+the+easiest+way.)]()
 </h1>
 <div align="center" width="100%">
   <img align="center" src="https://user-images.githubusercontent.com/85221003/156927272-0c54db85-436c-4e95-b0b9-9959978a1f5d.gif" width="256px" alt="HarshRajGupta"/>
