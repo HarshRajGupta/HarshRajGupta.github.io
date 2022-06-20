@@ -7,7 +7,7 @@
   , I am Harsh
 </h1>
 <div align="center" width="100%">
-  <img align="center" src="https://user-images.githubusercontent.com/85221003/156927272-0c54db85-436c-4e95-b0b9-9959978a1f5d.gif" width="256" alt="HarshRajGupta"/>
+  <img align="center" src="https://user-images.githubusercontent.com/85221003/156927272-0c54db85-436c-4e95-b0b9-9959978a1f5d.gif" width="1080" alt="HarshRajGupta"/>
 </div>
 
 <!-- ![image](https://user-images.githubusercontent.com/85221003/156927272-0c54db85-436c-4e95-b0b9-9959978a1f5d.gif) -->
