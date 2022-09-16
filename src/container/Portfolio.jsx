@@ -1,59 +1,72 @@
-import Styled from "styled-components";
-import { useState, memo } from "react";
-import ShowCase from "../components/ShowCase";
-import DragDownButton from "../components/DragDownButton";
+import Styled from 'styled-components';
+import { Suspense, memo, lazy, useState } from 'react';
+// import ShowCase from '../components/ShowCase';
+// import DragDownButton from '../components/DragDownButton';
+
+const ShowCase = lazy(() => import('../components/ShowCase'));
+const DragDownButton = lazy(() => import('../components/DragDownButton'));
+const Spinner = lazy(() => import('../components/Spinner'));
 
 const list = [
-  {
-    id: "featured",
-    title: "featured",
-  },
-  {
-    id: "achievements",
-    title: "achievements",
-  },
-  {
-    id: "certifications",
-    title: "certifications",
-  },
-  {
-    id: "skills",
-    title: "skills",
-  },
-  {
-    id: "languages",
-    title: "languages",
-  },
-  {
-    id: "projects",
-    title: "projects",
-  },
+	{
+		id: 'featured',
+		title: 'featured',
+	},
+	{
+		id: 'achievements',
+		title: 'achievements',
+	},
+	{
+		id: 'certifications',
+		title: 'certifications',
+	},
+	{
+		id: 'skills',
+		title: 'skills',
+	},
+	{
+		id: 'languages',
+		title: 'languages',
+	},
+	{
+		id: 'projects',
+		title: 'projects',
+	},
 ];
 
 function Portfolio({ isDark }) {
-  const [selected, setSelected] = useState("featured");
-  return (
-    <Container id={"Portfolio"}>
-      <PageHeading>Portfolio</PageHeading>
-      <Tabs isDark={isDark}>
-        {list.map((item) => (
-          <Tab
-            id={item.id}
-            className={item.id === selected ? "active" : ""}
-            onClick={() => {
-              setSelected(item.id);
-            }}
-            key={item.id}
-            isDark={isDark}
-          >
-            {item.title}
-          </Tab>
-        ))}
-      </Tabs>
-      <ShowCase selector={selected} setSelector={setSelected} isDark={isDark} />
-      <DragDownButton link="#Projects" />
-    </Container>
-  );
+	const [selected, setSelected] = useState('featured');
+	return (
+		<Suspense fallback={<Spinner text={`Loading`} />}>
+			<Container id={'Portfolio'}>
+				<PageHeading>Portfolio</PageHeading>
+				<Tabs isDark={isDark}>
+					{list.map((item) => (
+						<Tab
+							id={item.id}
+							className={item.id === selected ? 'active' : ''}
+							onClick={() => {
+								setSelected(item.id);
+							}}
+							key={item.id}
+							isDark={isDark}
+						>
+							{item.title}
+						</Tab>
+					))}
+				</Tabs>
+				<ShowCase
+					selector={selected}
+					setSelector={setSelected}
+					isDark={isDark}
+				/>
+				<DragDownButton
+					link="#Projects"
+					isDark={isDark}
+				/>
+			</Container>
+		</Suspense>
+	);
 }
 
 const Container = Styled.main`
@@ -104,7 +117,7 @@ const Tabs = Styled.ul`
     }
     /* background: rgba(255, 255, 255, 0.2); */
     background: ${({ isDark }) =>
-      isDark ? "rgba(2, 12, 23,0.1)" : "rgba(255, 255, 255, 0.1)"};
+		isDark ? 'rgba(2, 12, 23,0.1)' : 'rgba(255, 255, 255, 0.1)'};
 `;
 
 const Tab = Styled.li`
@@ -126,7 +139,7 @@ const Tab = Styled.li`
     &.active {
         color: #00c4cc;
         background-color: ${({ isDark }) =>
-          isDark ? "rgba(255, 255, 255, 0.9)" : "rgba(2, 12, 23, 0.9)"};
+			isDark ? 'rgba(255, 255, 255, 0.9)' : 'rgba(2, 12, 23, 0.9)'};
         transition: all 0.5s 0.5s ease;
         /* transform: scale(1); */
     }

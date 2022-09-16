@@ -123,9 +123,9 @@ function Contact({ isDark }) {
               </Message>
             </>
           )) ||
-            (status === "sent" && <Sent src={"/images/checked.png"} />) ||
+            (status === "sent" && <Sent src={"https://user-images.githubusercontent.com/85221003/190645104-c36be8f1-3721-4155-897d-2715be9a3972.png"} />) ||
             (status === "sending" && <Spinner text={`sending`} />) ||
-            (status === "try again" && <Sent src={"/images/x-button.png"} />)}
+            (status === "try again" && <Sent src={"https://user-images.githubusercontent.com/85221003/190645213-d4c57ad1-c85b-4516-8cac-ea3b6fbb544e.png"} />)}
           <Submit>
             <Button
               id="submit"
@@ -293,7 +293,7 @@ const Submit = Styled.div`
 `;
 
 const MessageBg = Styled.div`
-    background: url('/images/Harsh Raj Gupta - Contact.png');
+    background: url('https://user-images.githubusercontent.com/85221003/190644292-f8584039-a1df-455d-8905-e1c5eb6b04e7.png');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;

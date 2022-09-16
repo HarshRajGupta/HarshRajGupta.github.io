@@ -1,40 +1,49 @@
-import { memo } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Autoplay, Keyboard, Pagination, Navigation } from "swiper";
-import { ProjectPosts } from "../data";
-import Project from "../components/Project";
-import Styled from "styled-components";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import "../style.css";
+import { memo } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Autoplay, Keyboard, Pagination, Navigation } from 'swiper';
+import { ProjectPosts } from '../data';
+import Project from '../components/Project';
+import Styled from 'styled-components';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import '../style.css';
+import DragDownButton from '../components/DragDownButton';
+
 function Projects({ isDark }) {
-  SwiperCore.use([Autoplay, Keyboard]);
-  return (
-    <Container id={"Projects"}>
-      <Swiper
-        pagination={{
-          type: "progressbar",
-        }}
-        keyboard={{
-          enabled: true,
-        }}
-        autoplay={{
-          delay: 5000,
-        }}
-        loop={true}
-        navigation={true}
-        modules={[Pagination, Navigation]}
-        className="mySwiper"
-      >
-        {ProjectPosts.map((project) => (
-          <SwiperSlide key={project.id}>
-            <Project data={project} isDark={isDark} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </Container>
-  );
+	SwiperCore.use([Autoplay, Keyboard]);
+	return (
+		<Container id={'Projects'}>
+			<Swiper
+				pagination={{
+					type: 'progressbar',
+				}}
+				keyboard={{
+					enabled: true,
+				}}
+				autoplay={{
+					delay: 5000,
+				}}
+				loop={true}
+				navigation={true}
+				modules={[Pagination, Navigation]}
+				className="mySwiper"
+			>
+				{ProjectPosts.map((project) => (
+					<SwiperSlide key={project.id}>
+						<Project
+							data={project}
+							isDark={isDark}
+						/>
+					</SwiperSlide>
+				))}
+			</Swiper>
+			<DragDownButton
+				link={'#Contact-me'}
+				isDark={isDark}
+			/>
+		</Container>
+	);
 }
 
 const Container = Styled.div`
@@ -49,9 +58,9 @@ const Container = Styled.div`
     	}
     }
 	z-index: 1;
-    width:100%;
-    height: calc(100vh - 71px);
-	background: url('/images/tk.jpg');
+  width:100%;
+  height: calc(100vh - 71px);
+	background: url('https://user-images.githubusercontent.com/85221003/190643911-5296bdf7-b088-41f7-beff-c3f946a974d4.jpg');
 	background-size: contain;
 	@media (max-width: 540px) {
 		height: calc(100vh - 56px);

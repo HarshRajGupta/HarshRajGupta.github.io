@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { Suspense, memo, lazy } from 'react';
 import Styled from 'styled-components';
 import {
 	FeaturedPosts,
@@ -8,6 +8,8 @@ import {
 	LanguagesPosts,
 } from '../data';
 import { Fade } from 'react-reveal';
+
+const Spinner = lazy(() => import('../components/Spinner'));
 // import { Routes, Route, Link } from 'react-router-dom';
 
 function ShowCase({ selector, setSelector, isDark }) {
@@ -34,25 +36,31 @@ function ShowCase({ selector, setSelector, isDark }) {
 			break;
 	}
 	return (
-		<ItemContainer isDark={isDark}>
-			{Data.map((item) => (
-				<Fade>
-					<Item
-						key={item.id}
-						bgColor={
-							'#' +
-							Math.floor(Math.random() * 16777215).toString(16)
-						}
-					>
-						<Image
-							src={item.image}
-							alt={item.title}
-						></Image>
-						<h1>{item.title}</h1>
-					</Item>
-				</Fade>
-			))}
-		</ItemContainer>
+		<Suspense fallback={<Spinner text={`Loading`} />}>
+			<ItemContainer isDark={isDark}>
+				{Data.map((item) => (
+					<Suspense fallback={<Spinner />}>
+						<Fade>
+							<Item
+								key={item.id}
+								bgColor={
+									'#' +
+									Math.floor(
+										Math.random() * 16777215,
+									).toString(16)
+								}
+							>
+								<Image
+									src={item.image}
+									alt={item.title}
+								></Image>
+								<h1>{item.title}</h1>
+							</Item>
+						</Fade>
+					</Suspense>
+				))}
+			</ItemContainer>
+		</Suspense>
 	);
 }
 

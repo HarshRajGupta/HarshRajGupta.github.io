@@ -1,44 +1,53 @@
-import { memo } from "react";
-import Styled from "styled-components";
-import Typewriter from "typewriter-effect";
-import DragDownButton from "../components/DragDownButton";
-import Zoom from "react-reveal/Zoom";
-import Fade from "react-reveal/Fade";
+import { memo } from 'react';
+import Styled from 'styled-components';
+import Typewriter from 'typewriter-effect';
+import DragDownButton from '../components/DragDownButton';
+import Zoom from 'react-reveal/Zoom';
+import Fade from 'react-reveal/Fade';
 
 function Intro({ isDark }) {
-  return (
-    <Container id="Home">
-      <Left>
-        <ImageContainer>
-          <Zoom ssrFadeout>
-            <Image src="https://user-images.githubusercontent.com/85221003/156927272-0c54db85-436c-4e95-b0b9-9959978a1f5d.gif" />
-          </Zoom>
-        </ImageContainer>
-      </Left>
-      <Right>
-        <Fade right big>
-          <Wrap isDark={isDark}>
-            <LineOne isDark={isDark}>Hi There, I'm</LineOne>
-            <LineTwo isDark={isDark}>Harsh Raj Gupta</LineTwo>
-            <LineThree isDark={isDark}>
-              <span>
-                <Typewriter
-                  options={{
-                    strings: ["Competitive Programmer", "MERN Stack Developer"],
-                    autoStart: true,
-                    loop: true,
-                    pauseFor: 2000,
-                    cursorClassName: "blinkingCursor",
-                  }}
-                />
-              </span>
-            </LineThree>
-          </Wrap>
-        </Fade>
-      </Right>
-      <DragDownButton link="#About-me" />
-    </Container>
-  );
+	return (
+		<Container id="Home">
+			<Left>
+				<ImageContainer>
+					<Zoom ssrFadeout>
+						<Image src="https://user-images.githubusercontent.com/85221003/156927272-0c54db85-436c-4e95-b0b9-9959978a1f5d.gif" />
+					</Zoom>
+				</ImageContainer>
+			</Left>
+			<Right>
+				<Fade
+					right
+					big
+				>
+					<Wrap isDark={isDark}>
+						<LineOne isDark={isDark}>Hi There, I'm</LineOne>
+						<LineTwo isDark={isDark}>Harsh Raj Gupta</LineTwo>
+						<LineThree isDark={isDark}>
+							<span>
+								<Typewriter
+									options={{
+										strings: [
+											'Competitive Programmer',
+											'MERN Stack Developer',
+										],
+										autoStart: true,
+										loop: true,
+										pauseFor: 2000,
+										cursorClassName: 'blinkingCursor',
+									}}
+								/>
+							</span>
+						</LineThree>
+					</Wrap>
+				</Fade>
+			</Right>
+			<DragDownButton
+				link="#About-me"
+				isDark={isDark}
+			/>
+		</Container>
+	);
 }
 const Container = Styled.main`
     width: 100%;
@@ -69,7 +78,6 @@ const Left = Styled.div`
 
 const ImageContainer = Styled.div`
     height: 120vh;
-    /* background: url("/Images/imageBG.jpg"); */
     background-color: #82c5f8;
     background-size: contain;
     border-radius: 50%;
@@ -130,10 +138,10 @@ const Right = Styled.div`
 const Wrap = Styled.ul`
     height: max-content;
     color: #00c4cc;
-    color: ${({ isDark }) => (isDark ? "#00c4cc" : "rgba(2, 12, 23,0.9)")};
+    color: ${({ isDark }) => (isDark ? '#00c4cc' : 'rgba(2, 12, 23,0.9)')};
     /* background: rgba(255, 255, 255, 0.5); */
     /* background: ${({ isDark }) =>
-      isDark ? "rgba(2, 12, 23,0.1)" : "rgba(255, 255, 255, 0.2)"}; */
+		isDark ? 'rgba(2, 12, 23,0.1)' : 'rgba(255, 255, 255, 0.2)'}; */
     /* background: rgba(2, 12, 23,0.1); */
     user-select: none;
     -webkit-user-select: none;
@@ -147,7 +155,7 @@ const Wrap = Styled.ul`
     cursor: none;
     * {
         text-shadow: 3px 4px 7px ${({ isDark }) =>
-          isDark ? "rgba(255, 255, 255, 0.3)" : "rgba(81,67,21,0.8)"};
+			isDark ? 'rgba(255, 255, 255, 0.3)' : 'rgba(81,67,21,0.8)'};
         overflow: visible;
     }
 `;
@@ -199,7 +207,7 @@ const LineThree = Styled.li`
         display: inline;
     }
     span {
-        color: ${({ isDark }) => (isDark ? "inherit" : "crimson")};
+        color: ${({ isDark }) => (isDark ? 'inherit' : 'crimson')};
         &.blinkingCursor {
             @keyframes typingCursor {
                 0% { opacity: 1 }

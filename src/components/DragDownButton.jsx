@@ -39,5 +39,6 @@ const Link = styled.a`
   }
   margin: 0 calc(50% - 32px);
   color: ${({ isDark }) => (isDark ? "#fff" : "#15023a")};
+  z-index: 10;
 `;
 export default memo(DragDownButton);

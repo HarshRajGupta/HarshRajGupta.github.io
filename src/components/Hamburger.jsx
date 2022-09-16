@@ -78,7 +78,7 @@ const Container = Styled.div`
         transform: ${(props) =>
           props.show ? "translateX(0%)" : "translateY(-256%)"};
     }
-    background: url("/images/Hamburger.jpg");
+    background: url("https://user-images.githubusercontent.com/85221003/190644474-da925862-c4fe-4dc8-96dc-e2df2c7ced9a.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;

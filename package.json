@@ -2,7 +2,7 @@
   "name": "HarshRajGupta",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://harshrajgupta.github.io/HarshRajGupta",
+  "homepage": "https://harshrajgupta.github.io",
   "dependencies": {
     "@emailjs/browser": "^3.7.0",
     "@emotion/react": "^11.9.3",

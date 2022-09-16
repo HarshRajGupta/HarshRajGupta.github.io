@@ -1,58 +1,68 @@
-import Styled from "styled-components";
-import DragDownButton from "../components/DragDownButton";
-import { memo } from "react";
+import Styled from 'styled-components';
+import DragDownButton from '../components/DragDownButton';
+import { memo } from 'react';
 
 function About({ isDark }) {
-  return (
-    <Container id={"About-me"}>
-      <Wrap isDark={isDark}>
-        <div>
-          <PageHeading> Me</PageHeading>
-          <AboutMe>
-            <p>
-              {
-                "Amenable Software Engineer gifted at translating client requirements into technical development plans."
-              }
-              <br />
-              {
-                "Communicates productively with both technical and non-technical personnel and clients."
-              }
-              <br />
-              {
-                "A proactive learner dedicated to improving skills through hands-on learning and development work."
-              }
-              <br />
-              {
-                "Friendly provider of deep programming knowledge and invaluable final products."
-              }
-              <br />
-              {
-                "Well-organized and collaborative team player with strong communication and analytical abilities."
-              }
-              <br />
-              {"Proficient in mobile and desktop development environments."}
-              <br />
-              {
-                "Adept at using ReactJS/Redux, ExpressJs/NodeJs and other programming languages to produce clean code."
-              }
-              <br />
-              {"Detail-oriented, organized and meticulous leader."}
-              <br />
-              {
-                "Enthusiastic team player ready to contribute to company success."
-              }
-              <br />
-              {"Works at fast pace to meet tight deadlines."}
-            </p>
-          </AboutMe>
-        </div>
-        <Sign isDark={isDark} href="#Home">
-          Harsh Raj Gupta
-        </Sign>
-      </Wrap>
-      <DragDownButton link="#Portfolio" />
-    </Container>
-  );
+	return (
+		<Container id={'About-me'}>
+			<Wrap isDark={isDark}>
+				<div>
+					<PageHeading> Me</PageHeading>
+					<AboutMe>
+						<p>
+							{
+								'Amenable Software Engineer gifted at translating client requirements into technical development plans.'
+							}
+							<br />
+							{
+								'Communicates productively with both technical and non-technical personnel and clients.'
+							}
+							<br />
+							{
+								'A proactive learner dedicated to improving skills through hands-on learning and development work.'
+							}
+							<br />
+							{
+								'Friendly provider of deep programming knowledge and invaluable final products.'
+							}
+							<br />
+							{
+								'Well-organized and collaborative team player with strong communication and analytical abilities.'
+							}
+							<br />
+							{
+								'Proficient in mobile and desktop development environments.'
+							}
+							<br />
+							{
+								'Adept at using ReactJS/Redux, ExpressJs/NodeJs and other programming languages to produce clean code.'
+							}
+							<br />
+							{
+								'Detail-oriented, organized and meticulous leader.'
+							}
+							<br />
+							{
+								'Enthusiastic team player ready to contribute to company success.'
+							}
+							<br />
+							{'Works at fast pace to meet tight deadlines.'}
+						</p>
+					</AboutMe>
+				</div>
+				<Sign
+					isDark={isDark}
+					href="#Home"
+				>
+					Harsh Raj Gupta
+				</Sign>
+			</Wrap>
+			<DragDownButton
+				link="#Portfolio"
+				isDark={isDark}
+			/>
+		</Container>
+	);
 }
 
 const Container = Styled.div`
@@ -93,7 +103,7 @@ const Wrap = Styled.div`
 	width: max-content;
 	/* background: rgba(255, 255, 255, 0.69); */
 	background: ${({ isDark }) =>
-    isDark ? "rgba(2, 12, 23,0.5)" : "rgba(255, 255, 255, 0.5)"};
+		isDark ? 'rgba(2, 12, 23,0.5)' : 'rgba(255, 255, 255, 0.5)'};
 	align-items: top;
 	display: block;
 	margin: 0 auto;
@@ -163,7 +173,7 @@ const Sign = Styled.a`
 		content: '-'
 	}
 	text-shadow: 3px 4px 7px ${({ isDark }) =>
-    isDark ? "rgba(255, 255, 255, 0.2)" : "rgba(81,67,21,0.8)"};
+		isDark ? 'rgba(255, 255, 255, 0.2)' : 'rgba(81,67,21,0.8)'};
 	overflow: visible;
 `;
 
