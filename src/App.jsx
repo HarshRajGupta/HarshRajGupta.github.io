@@ -65,12 +65,12 @@ function App() {
             isDark={isDark}
             setDark={setDark}
           />
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Spinner text={`Loading`} />}>
             {
               <Sections fullScreen={!menuOpen}>
                 <Intro isDark={isDark} />
                 <About isDark={isDark} />
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<Spinner text={`Loading`} />}>
                   <Portfolio isDark={isDark} />
                 </Suspense>
                 <Projects isDark={isDark} />
