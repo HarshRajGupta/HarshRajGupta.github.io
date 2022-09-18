@@ -74,7 +74,7 @@ function App() {
 							<Sections fullScreen={!menuOpen}>
 								<Routes>
 									<Route
-										path="/about/*"
+										path="/home/*"
 										element={<About isDark={isDark} />}
 									/>
 									<Route
