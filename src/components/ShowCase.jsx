@@ -12,12 +12,9 @@ import { Fade } from 'react-reveal';
 const Spinner = lazy(() => import('../components/Spinner'));
 // import { Routes, Route, Link } from 'react-router-dom';
 
-function ShowCase({ selector, setSelector, isDark }) {
+function ShowCase({ selector, isDark }) {
 	var Data = [];
 	switch (selector) {
-		case 'featured':
-			Data = FeaturedPosts;
-			break;
 		case 'achievements':
 			Data = AchievementPosts;
 			break;
@@ -32,17 +29,18 @@ function ShowCase({ selector, setSelector, isDark }) {
 			break;
 		default:
 			Data = FeaturedPosts;
-			setSelector('featured');
 			break;
 	}
 	return (
 		<Suspense fallback={<Spinner text={`Loading`} />}>
 			<ItemContainer isDark={isDark}>
 				{Data.map((item) => (
-					<Suspense fallback={<Spinner />}>
+					<Suspense
+						key={item.id}
+						fallback={<Spinner />}
+					>
 						<Fade>
 							<Item
-								key={item.id}
 								bgColor={
 									'#' +
 									Math.floor(

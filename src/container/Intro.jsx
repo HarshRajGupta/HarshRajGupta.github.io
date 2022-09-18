@@ -5,7 +5,7 @@ import DragDownButton from '../components/DragDownButton';
 import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
 
-function Intro({ isDark }) {
+function Intro({ isDark, all }) {
 	return (
 		<Container id="Home">
 			<Left>
@@ -45,10 +45,12 @@ function Intro({ isDark }) {
 					</Wrap>
 				</Fade>
 			</Right>
-			<DragDownButton
-				link="#About-me"
-				isDark={isDark}
-			/>
+			{all && (
+				<DragDownButton
+					link="#About-me"
+					isDark={isDark}
+				/>
+			)}
 		</Container>
 	);
 }

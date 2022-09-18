@@ -19,7 +19,7 @@ function TopBar({ menuOpen, setMenuOpen, isDark, setDark }) {
       />
       <Wrap>
         <LeftBar>
-          <MyName isDark={isDark} href="#home">
+          <MyName isDark={isDark} href="#Home">
             harsh.
           </MyName>
           <Item>

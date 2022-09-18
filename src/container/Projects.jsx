@@ -12,7 +12,7 @@ import DragDownButton from '../components/DragDownButton';
 
 SwiperCore.use([Autoplay, Keyboard]);
 
-function Projects({ isDark }) {
+function Projects({ isDark, all }) {
 	return (
 		<Container id={'Projects'}>
 			<Swiper
@@ -39,10 +39,12 @@ function Projects({ isDark }) {
 					</SwiperSlide>
 				))}
 			</Swiper>
-			<DragDownButton
-				link={'#Contact-me'}
-				isDark={isDark}
-			/>
+			{all && (
+				<DragDownButton
+					link={'#Contact-me'}
+					isDark={isDark}
+				/>
+			)}
 		</Container>
 	);
 }

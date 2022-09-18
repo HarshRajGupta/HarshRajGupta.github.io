@@ -1,5 +1,6 @@
 import Styled from 'styled-components';
-import { Suspense, memo, lazy, useState } from 'react';
+import { Suspense, memo, lazy } from 'react';
+import { Routes, Route, NavLink } from 'react-router-dom';
 // import ShowCase from '../components/ShowCase';
 // import DragDownButton from '../components/DragDownButton';
 
@@ -10,60 +11,77 @@ const Spinner = lazy(() => import('../components/Spinner'));
 const list = [
 	{
 		id: 'featured',
-		title: 'featured',
+		title: 'Featured',
 	},
 	{
 		id: 'achievements',
-		title: 'achievements',
+		title: 'Achievements',
 	},
 	{
 		id: 'certifications',
-		title: 'certifications',
+		title: 'Certifications',
 	},
 	{
 		id: 'skills',
-		title: 'skills',
+		title: 'Skills',
 	},
 	{
 		id: 'languages',
-		title: 'languages',
+		title: 'Languages',
 	},
 	{
-		id: 'projects',
-		title: 'projects',
+		id: 'project',
+		title: 'Projects',
 	},
 ];
 
-function Portfolio({ isDark }) {
-	const [selected, setSelected] = useState('featured');
+function Portfolio({ isDark, all }) {
 	return (
 		<Suspense fallback={<Spinner text={`Loading`} />}>
 			<Container id={'Portfolio'}>
 				<PageHeading>Portfolio</PageHeading>
 				<Tabs isDark={isDark}>
 					{list.map((item) => (
-						<Tab
-							id={item.id}
-							className={item.id === selected ? 'active' : ''}
-							onClick={() => {
-								setSelected(item.id);
-							}}
+						<NavLink
+							to={`${item.id}`}
+							exact
+							activeClassName="active"
 							key={item.id}
-							isDark={isDark}
 						>
-							{item.title}
-						</Tab>
+							<Tab isDark={isDark}>{item.title}</Tab>
+						</NavLink>
 					))}
 				</Tabs>
-				<ShowCase
-					selector={selected}
-					setSelector={setSelected}
-					isDark={isDark}
-				/>
-				<DragDownButton
-					link="#Projects"
-					isDark={isDark}
-				/>
+				<Routes>
+					{list.map((item) => (
+						<Route
+							path={`/${item.id}`}
+							key={item.id}
+							exact
+							element={
+								<ShowCase
+									selector={item.id}
+									isDark={isDark}
+								/>
+							}
+						/>
+					))}
+					<Route
+						path="/*"
+						element={
+							<ShowCase
+								selector={'featured'}
+								isDark={isDark}
+							/>
+						}
+					/>
+				</Routes>
+				{all && (
+					<DragDownButton
+						link="#Projects"
+						isDark={isDark}
+					/>
+				)}
 			</Container>
 		</Suspense>
 	);
@@ -118,6 +136,16 @@ const Tabs = Styled.ul`
     /* background: rgba(255, 255, 255, 0.2); */
     background: ${({ isDark }) =>
 		isDark ? 'rgba(2, 12, 23,0.1)' : 'rgba(255, 255, 255, 0.1)'};
+    .active li{
+        color: #00c4cc !important;
+		transform: scale(1) !important;
+        background-color: ${({ isDark }) =>
+			isDark
+				? 'rgba(255, 255, 255, 0.9) !important'
+				: 'rgba(2, 12, 23, 0.9) !important'};
+        transition: all 250ms 250ms ease !important;
+        /* transform: scale(1); */
+    }
 `;
 
 const Tab = Styled.li`
@@ -129,20 +157,12 @@ const Tab = Styled.li`
         font-size: 12px;
     }
     padding: 7px;
-    border-radius: 10px;
+    border-radius: 12px;
     text-transform: capitalize;
     font-weight: 600;
     cursor: pointer;
     height: max-content;
-    transition: all 0.25s 0s ease;
     transform: scale(0.9);
-    &.active {
-        color: #00c4cc;
-        background-color: ${({ isDark }) =>
-			isDark ? 'rgba(255, 255, 255, 0.9)' : 'rgba(2, 12, 23, 0.9)'};
-        transition: all 0.5s 0.5s ease;
-        /* transform: scale(1); */
-    }
     margin: 0 auto;
 `;
 

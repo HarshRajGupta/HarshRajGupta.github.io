@@ -4,23 +4,23 @@ import { memo } from 'react';
 function HamBurger({ showMenu, setMenu, isDark, setDark }) {
 	const menuList = [
 		{
-			id: '#Home',
+			id: 'home',
 			title: 'home',
 		},
 		{
-			id: '#About-me',
+			id: 'about',
 			title: 'about me',
 		},
 		{
-			id: '#Portfolio',
+			id: 'portfolio',
 			title: 'portfolio',
 		},
 		{
-			id: '#Projects',
+			id: 'projects',
 			title: 'projects',
 		},
 		{
-			id: '#Contact-me',
+			id: 'contact',
 			title: 'contact',
 		},
 	];

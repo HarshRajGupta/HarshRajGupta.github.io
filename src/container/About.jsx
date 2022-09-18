@@ -2,7 +2,7 @@ import Styled from 'styled-components';
 import DragDownButton from '../components/DragDownButton';
 import { memo } from 'react';
 
-function About({ isDark }) {
+function About({ isDark, all }) {
 	return (
 		<Container id={'About-me'}>
 			<Wrap isDark={isDark}>
@@ -57,10 +57,12 @@ function About({ isDark }) {
 					Harsh Raj Gupta
 				</Sign>
 			</Wrap>
-			<DragDownButton
-				link="#Portfolio"
-				isDark={isDark}
-			/>
+			{all && (
+				<DragDownButton
+					link="#Portfolio"
+					isDark={isDark}
+				/>
+			)}
 		</Container>
 	);
 }
