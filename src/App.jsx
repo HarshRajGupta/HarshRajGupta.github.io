@@ -17,6 +17,9 @@ const Background = lazy(() => import('./container/BG'));
 // import {Intro, About, Portfolio, Projects, Contact, TopBar, Background} from './container'
 
 function App() {
+	// const BackToHome = useMemo(() => {
+	// 	window.location.href = '';
+	// });
 	var theme = true;
 	if (localStorage.getItem('&7aQ@sb95ZF1cP#4&m3K') === 'false') {
 		theme = false;
