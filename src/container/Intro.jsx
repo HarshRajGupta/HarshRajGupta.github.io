@@ -30,6 +30,9 @@ function Intro({ isDark }) {
 										strings: [
 											'Competitive Programmer',
 											'MERN Stack Developer',
+											'SHI Finalist',
+											'ICPC Regionalist',
+											'Speacialist @CF',
 										],
 										autoStart: true,
 										loop: true,
