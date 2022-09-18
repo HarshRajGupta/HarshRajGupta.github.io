@@ -10,8 +10,9 @@ import 'swiper/css/navigation';
 import '../style.css';
 import DragDownButton from '../components/DragDownButton';
 
+SwiperCore.use([Autoplay, Keyboard]);
+
 function Projects({ isDark }) {
-	SwiperCore.use([Autoplay, Keyboard]);
 	return (
 		<Container id={'Projects'}>
 			<Swiper

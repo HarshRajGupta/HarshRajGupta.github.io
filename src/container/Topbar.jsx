@@ -1,6 +1,7 @@
 import { memo } from "react";
 import Styled from "styled-components";
-import PersonIcon from "@mui/icons-material/Person";
+// import PersonIcon from "@mui/icons-material/Person";
+import CallIcon from '@mui/icons-material/Call';
 import EmailIcon from "@mui/icons-material/Email";
 import DownloadIcon from "@mui/icons-material/Download";
 import Hamburger from "../components/Hamburger";
@@ -22,7 +23,7 @@ function TopBar({ menuOpen, setMenuOpen, isDark, setDark }) {
             harsh.
           </MyName>
           <Item>
-            <PersonIcon
+            <CallIcon
               className="icon"
               onClick={() => {
                 navigator.clipboard.writeText("+917607642202");
@@ -129,7 +130,7 @@ const MyName = Styled.a`
 `;
 const Item = Styled.div`
     grid-template-columns: auto auto;
-    grid-gap: 8px;
+    grid-gap: 4px;
     align-items: center;
     cursor: default;
 	.icon {

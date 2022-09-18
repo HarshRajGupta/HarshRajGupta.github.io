@@ -96,10 +96,10 @@ const Item = Styled.div`
     background: ${(props) => props.bgColor};
     h1 {
         width: 100%;
-        font-size: 18px;
+        font-size: 13px;
         text-align: center;
-        font-family:  cursive;
-        font-weight: 500;
+        font-family: 'Pacifico', cursive;
+        font-weight: 400;
         position: absolute;
         opacity: 0;
         height: 100%;

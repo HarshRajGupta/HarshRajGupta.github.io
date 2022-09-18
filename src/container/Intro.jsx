@@ -181,8 +181,11 @@ const LineTwo = Styled.li`
     font-weight: 500;
     cursor: none;
     width: 100%;
-    @media (max-width: 414px) {
-        font-size: 38px
+    @media (max-width: 541px) {
+        font-size: 56px;
+    }
+    @media (max-width: 415px) {
+        font-size: 42px;
     }
     @media (max-width: 300px) {
         font-size: 32px

@@ -338,8 +338,8 @@ function Background() {
             },
           },
           color: {
-            value: "#ff0000",
-            // value: '#5cb6f9',
+            // value: "#ff0000",
+            value: '#5cb6f9',
             // value: `#5cb6f9`,
             animation: {
               h: {
@@ -423,7 +423,7 @@ function Background() {
             frequency: 1,
             opacity: 1,
             shadow: {
-              blur: 10,
+              blur: 8,
               color: {
                 value: "#fff",
               },
@@ -505,8 +505,8 @@ function Background() {
           number: {
             density: {
               enable: true,
-              area: 800,
-              factor: 640,
+              area: 1536,
+              factor: 512,
             },
             limit: 100,
             // value: 100,
@@ -589,11 +589,11 @@ function Background() {
             path: false,
           },
           shadow: {
-            blur: 0,
+            blur: 8,
             color: {
-              value: "#000",
+              value: "#fff",
             },
-            enable: false,
+            enable: true,
             offset: {
               x: 0,
               y: 0,

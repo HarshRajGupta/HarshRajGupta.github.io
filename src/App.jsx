@@ -100,7 +100,7 @@ const Sections = styled.main`
   height: calc(100vh - 70px);
   position: relative;
   top: 70px;
-  @media (min-width: 540px) {
+  @media (min-width: 541px) {
     width: ${(props) => (props.fullScreen ? "100vw" : "calc(100vw - 204px)")};
   }
   overflow-y: scroll;

@@ -4,8 +4,6 @@
   font-weight: normal;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700;900&display=swap");
-
 * {
   display: grid;
   padding: 0;

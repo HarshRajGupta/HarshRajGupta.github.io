@@ -85,7 +85,7 @@ const PageHeading = Styled.div`
     margin-bottom: 16px;
     font-weight: 500;
     display: block;
-    font-family: cursive;
+    font-family: 'Pacifico', cursive;
     &::before {
 		font-family: Poppins;
         content: "About";
@@ -135,7 +135,7 @@ const AboutMe = Styled.div`
 		background: -webkit-linear-gradient(#5cb6f9, #00c4cc, #185a9d);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
-		font-family: monospace;
+		font-family: 'Ubuntu Mono', monospace;
 		font-size: 20px;
 		line-height: 36px;
 		@media (max-width: 414px) {

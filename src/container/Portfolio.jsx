@@ -92,7 +92,7 @@ const PageHeading = Styled.div`
     color: #00c4cc;
     &::before {
         content: "My ";
-        font-family: cursive;
+        font-family: 'Pacifico', cursive;
         /* color: #15023a; */
         color: #5cb6f9;
         font-weight: 400;
