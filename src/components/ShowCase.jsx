@@ -9,7 +9,8 @@ import {
 } from '../data';
 import { Fade } from 'react-reveal';
 
-const Spinner = lazy(() => import('../components/Spinner'));
+const Spinner = lazy(() => import('./Spinner'));
+const ShortSpinner = lazy(() => import('./ShortSpinner'));
 // import { Routes, Route, Link } from 'react-router-dom';
 
 function ShowCase({ selector, isDark }) {
@@ -48,9 +49,16 @@ function ShowCase({ selector, isDark }) {
 									).toString(16)
 								}
 							>
+								{selector !== 'languages' &&
+									selector !== 'skills' && (
+										<Loading>
+											<ShortSpinner />
+										</Loading>
+									)}
 								<Image
 									src={item.image}
 									alt={item.title}
+									isDark={isDark}
 								></Image>
 								<h1>{item.title}</h1>
 							</Item>
@@ -133,6 +141,16 @@ const Image = Styled.img`
     width: 100%;
     height: 100%;
     object-fit: contain;
+    background: ${({ isDark }) =>
+		isDark ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.7)'};
+`;
+
+const Loading = Styled.div`
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 0;
 `;
 
 export default memo(ShowCase);

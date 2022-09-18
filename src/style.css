@@ -131,9 +131,9 @@ body {
   }
 }
 
-.spinner {
-  width: 200px;
-  height: 200px;
+.spinner, .spinner-s {
+  width: 256px;
+  height: 256px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -143,6 +143,10 @@ body {
   position: relative;
   animation: text-color 2s ease-in-out infinite alternate;
   z-index: 1;
+}
+.spinner-s {
+  width: 64px;
+  height: 64px;
 }
 .spinner::after {
   content: "...";
