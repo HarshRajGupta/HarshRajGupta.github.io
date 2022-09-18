@@ -3,6 +3,7 @@ import Spinner from '../components/Spinner';
 import emailjs from '@emailjs/browser';
 import Styled from 'styled-components';
 import { useAlert } from 'react-alert';
+import Fade from 'react-reveal/Fade';
 
 const Map = lazy(() => import('../components/Map'));
 
@@ -98,91 +99,95 @@ function Contact({ isDark }) {
 			isDark={isDark}
 			id="Contact-me"
 		>
-			<Left>
-				<Map />
-			</Left>
-			<Right>
-				<Title>Contact</Title>
-				<Wrap
-					ref={form}
-					onSubmit={handleSubmit}
-				>
-					{(status === 'send' && (
-						<>
-							<Email>
-								<span></span>
-								<EmailInput
-									type="email"
-									name="user_email"
-									value={formData.user_email}
-									onChange={handleChange}
-									placeholder="Enter your Email Address"
-									required
-								/>
-								<span></span>
-							</Email>
-							<Message>
-								<span></span>
-								<MessageBg>
-									<MessageInput
-										name="message"
-										required
-										value={formData.message}
+			<Fade left big>
+				<Left>
+					<Map />
+				</Left>
+			</Fade>
+			<Fade right big>
+				<Right>
+					<Title>Contact</Title>
+					<Wrap
+						ref={form}
+						onSubmit={handleSubmit}
+					>
+						{(status === 'send' && (
+							<>
+								<Email>
+									<span></span>
+									<EmailInput
+										type="email"
+										name="user_email"
+										value={formData.user_email}
 										onChange={handleChange}
+										placeholder="Enter your Email Address"
+										required
 									/>
-								</MessageBg>
-								<span></span>
-							</Message>
-						</>
-					)) ||
-						(status === 'sent' && (
-							<Sent
-								src={
-									'https://user-images.githubusercontent.com/85221003/190645104-c36be8f1-3721-4155-897d-2715be9a3972.png'
-								}
-							/>
+									<span></span>
+								</Email>
+								<Message>
+									<span></span>
+									<MessageBg>
+										<MessageInput
+											name="message"
+											required
+											value={formData.message}
+											onChange={handleChange}
+										/>
+									</MessageBg>
+									<span></span>
+								</Message>
+							</>
 						)) ||
-						(status === 'sending' && (
-							<Spinner text={`sending`} />
-						)) ||
-						(status === 'try again' && (
-							<Sent
-								src={
-									'https://user-images.githubusercontent.com/85221003/190645213-d4c57ad1-c85b-4516-8cac-ea3b6fbb544e.png'
+							(status === 'sent' && (
+								<Sent
+									src={
+										'https://user-images.githubusercontent.com/85221003/190645104-c36be8f1-3721-4155-897d-2715be9a3972.png'
+									}
+								/>
+							)) ||
+							(status === 'sending' && (
+								<Spinner text={`sending`} />
+							)) ||
+							(status === 'try again' && (
+								<Sent
+									src={
+										'https://user-images.githubusercontent.com/85221003/190645213-d4c57ad1-c85b-4516-8cac-ea3b6fbb544e.png'
+									}
+								/>
+							))}
+						<Submit>
+							<Button
+								id="submit"
+								className={
+									status === 'sending'
+										? 'clicked'
+										: status === 'try again'
+										? 'error'
+										: status === 'sent'
+										? 'sent'
+										: ''
 								}
-							/>
-						))}
-					<Submit>
-						<Button
-							id="submit"
-							className={
-								status === 'sending'
-									? 'clicked'
-									: status === 'try again'
-									? 'error'
-									: status === 'sent'
-									? 'sent'
-									: ''
-							}
-						>
-							{status}
-							<svg
-								version="1.1"
-								x="0px"
-								y="0px"
-								viewBox="0 0 512 512"
-								enableBackground="new 0 0 512 512"
 							>
-								<path
-									id="paper-plane-icon"
-									d="M462,54.955L355.371,437.187l-135.92-128.842L353.388,167l-179.53,124.074L50,260.973L462,54.955z
+								{status}
+								<svg
+									version="1.1"
+									x="0px"
+									y="0px"
+									viewBox="0 0 512 512"
+									enableBackground="new 0 0 512 512"
+								>
+									<path
+										id="paper-plane-icon"
+										d="M462,54.955L355.371,437.187l-135.92-128.842L353.388,167l-179.53,124.074L50,260.973L462,54.955z
 M202.992,332.528v124.517l58.738-67.927L202.992,332.528z"
-								></path>
-							</svg>
-						</Button>
-					</Submit>
-				</Wrap>
-			</Right>
+									></path>
+								</svg>
+							</Button>
+						</Submit>
+					</Wrap>
+				</Right>
+			</Fade>
 		</Container>
 	);
 }

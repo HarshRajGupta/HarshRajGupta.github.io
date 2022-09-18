@@ -1,62 +1,65 @@
 import Styled from 'styled-components';
 import DragDownButton from '../components/DragDownButton';
 import { memo } from 'react';
+import Zoom from 'react-reveal/Zoom';
 
 function About({ isDark, all }) {
 	return (
 		<Container id={'About-me'}>
-			<Wrap isDark={isDark}>
-				<div>
-					<PageHeading> Me</PageHeading>
-					<AboutMe>
-						<p>
-							{
-								'Amenable Software Engineer gifted at translating client requirements into technical development plans.'
-							}
-							<br />
-							{
-								'Communicates productively with both technical and non-technical personnel and clients.'
-							}
-							<br />
-							{
-								'A proactive learner dedicated to improving skills through hands-on learning and development work.'
-							}
-							<br />
-							{
-								'Friendly provider of deep programming knowledge and invaluable final products.'
-							}
-							<br />
-							{
-								'Well-organized and collaborative team player with strong communication and analytical abilities.'
-							}
-							<br />
-							{
-								'Proficient in mobile and desktop development environments.'
-							}
-							<br />
-							{
-								'Adept at using ReactJS/Redux, ExpressJs/NodeJs and other programming languages to produce clean code.'
-							}
-							<br />
-							{
-								'Detail-oriented, organized and meticulous leader.'
-							}
-							<br />
-							{
-								'Enthusiastic team player ready to contribute to company success.'
-							}
-							<br />
-							{'Works at fast pace to meet tight deadlines.'}
-						</p>
-					</AboutMe>
-				</div>
-				<Sign
-					isDark={isDark}
-					href="#Home"
-				>
-					Harsh Raj Gupta
-				</Sign>
-			</Wrap>
+			<Zoom>
+				<Wrap isDark={isDark}>
+					<div>
+						<PageHeading> Me</PageHeading>
+						<AboutMe>
+							<p>
+								{
+									'Amenable Software Engineer gifted at translating client requirements into technical development plans.'
+								}
+								<br />
+								{
+									'Communicates productively with both technical and non-technical personnel and clients.'
+								}
+								<br />
+								{
+									'A proactive learner dedicated to improving skills through hands-on learning and development work.'
+								}
+								<br />
+								{
+									'Friendly provider of deep programming knowledge and invaluable final products.'
+								}
+								<br />
+								{
+									'Well-organized and collaborative team player with strong communication and analytical abilities.'
+								}
+								<br />
+								{
+									'Proficient in mobile and desktop development environments.'
+								}
+								<br />
+								{
+									'Adept at using ReactJS/Redux, ExpressJs/NodeJs and other programming languages to produce clean code.'
+								}
+								<br />
+								{
+									'Detail-oriented, organized and meticulous leader.'
+								}
+								<br />
+								{
+									'Enthusiastic team player ready to contribute to company success.'
+								}
+								<br />
+								{'Works at fast pace to meet tight deadlines.'}
+							</p>
+						</AboutMe>
+					</div>
+					<Sign
+						isDark={isDark}
+						href="#Home"
+					>
+						Harsh Raj Gupta
+					</Sign>
+				</Wrap>
+			</Zoom>
 			{all && (
 				<DragDownButton
 					link="#Portfolio"
@@ -75,7 +78,6 @@ const Container = Styled.div`
     }
 	justify-content: center;
 	z-index: 1;
-	grid-template-columns: 1fr;
 	position: relative;
 `;
 

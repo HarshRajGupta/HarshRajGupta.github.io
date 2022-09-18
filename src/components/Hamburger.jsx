@@ -1,5 +1,6 @@
 import Styled from 'styled-components';
 import { memo } from 'react';
+import { Link } from 'react-router-dom';
 
 function HamBurger({ showMenu, setMenu, isDark, setDark }) {
 	const menuList = [
@@ -56,12 +57,7 @@ function HamBurger({ showMenu, setMenu, isDark, setDark }) {
 				{showMenu &&
 					menuList.map((item) => (
 						<Item>
-							<Link
-								href={item.id}
-								onClick={() => setMenu(false)}
-							>
-								{item.title}
-							</Link>
+							<Link className="link" to={item.id}>{item.title}</Link>
 						</Item>
 					))}
 			</Menu>
@@ -123,10 +119,8 @@ const Theme = Styled.div`
 const Item = Styled.li`
     width: max-content;
     margin: 0 auto;
-`;
-
-const Link = Styled.a`
-    margin: 0 auto;
+    .link {
+        margin: 0 auto;
     width: max-content;
     text-decoration: none;
     font-family: "Zen Kaku Gothic Antique";
@@ -137,6 +131,7 @@ const Link = Styled.a`
     position: relative;
     transition-delay: 250ms;
     text-transform: capitalize;
+    }
     &::after {
         content: '';
         position: absolute;
@@ -151,22 +146,17 @@ const Link = Styled.a`
         border-radius: 32px;
         background: linear-gradient(#185a9d, #15023a);
     }
+    &:hover {
+        color: #185a9d;
+        font-weight: Black;
+        opacity: 0.75;
+        transition-delay: 0s !important;
+        transition-duration: 0s !important;
+    }
     &:hover::after {
         transform: scaleX(1);
         transform-origin: bottom  left;
     }
-    &:hover {
-        background: -webkit-linear-gradient(#185a9d, #15023a);
-	    -webkit-background-clip: text;
-	    -webkit-text-fill-color: transparent;
-        font-weight: 900;
-        opacity: 0.75;
-        transition-delay: 0s;
-    }
-    ${(props) =>
-		props.active
-			? 'color: #15023a; font-weight: 700; opacity: 0.75; &::after { transform: scaleX(1);}'
-			: ''}
 `;
 
 export default memo(HamBurger);

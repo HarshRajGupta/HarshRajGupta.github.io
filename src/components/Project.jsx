@@ -1,36 +1,39 @@
 import { memo } from 'react';
 import styled from 'styled-components';
+import Zoom from 'react-reveal/Zoom';
 
 function Project({ data }) {
 	return (
 		<Container>
-			<Item>
-				<Left>
-					<LeftContainer>
-						<IconContainer>
-							<Icon
-								src={data.icon}
-								alt={data.title}
-							/>
-						</IconContainer>
-						<h2>{data.title}</h2>
-						<p className="desc">{data.desc}</p>
-						<a
-							target="_blank"
-							href={data.url}
-							rel="noreferrer"
-						>
-							Link
-						</a>
-					</LeftContainer>
-				</Left>
-				<Right>
-					<Image
-						src={data.image}
-						alt={data.title}
-					/>
-				</Right>
-			</Item>
+			<Zoom>
+				<Item>
+					<Left>
+						<LeftContainer>
+							<IconContainer>
+								<Icon
+									src={data.icon}
+									alt={data.title}
+								/>
+							</IconContainer>
+							<h2>{data.title}</h2>
+							<p className="desc">{data.desc}</p>
+							<a
+								target="_blank"
+								href={data.url}
+								rel="noreferrer"
+							>
+								Link
+							</a>
+						</LeftContainer>
+					</Left>
+					<Right>
+						<Image
+							src={data.image}
+							alt={data.title}
+						/>
+					</Right>
+				</Item>
+			</Zoom>
 		</Container>
 	);
 }
@@ -86,8 +89,8 @@ const LeftContainer = styled.div`
 		font-family: 'Montserrat', sans-serif;
 		font-weight: 700;
 		font-size: 10px;
-    line-height: 16px;
-    letter-spacing: 0.6px;
+		line-height: 16px;
+		letter-spacing: 0.6px;
 	}
 	a {
 		font-size: 16px;

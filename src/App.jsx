@@ -74,7 +74,11 @@ function App() {
 							<Sections fullScreen={!menuOpen}>
 								<Routes>
 									<Route
-										path="/home/*"
+										path="/home"
+										element={<Intro isDark={isDark} />}
+									/>
+									<Route
+										path="/about"
 										element={<About isDark={isDark} />}
 									/>
 									<Route
@@ -82,11 +86,11 @@ function App() {
 										element={<Portfolio isDark={isDark} />}
 									/>
 									<Route
-										path="/projects/*"
+										path="/projects"
 										element={<Projects isDark={isDark} />}
 									/>
 									<Route
-										path="/contact/*"
+										path="/contact"
 										element={<Contact isDark={isDark} />}
 									/>
 									<Route
