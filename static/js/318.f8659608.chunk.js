@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkHarshRajGupta=self.webpackChunkHarshRajGupta||[]).push([[318],{7318:function(a,e,s){s.r(e);var t=s(2791),i=s(3),u=s(184);function n(){return(0,u.jsxs)("div",{className:"map-container",children:[(0,u.jsx)(i.Z,{test:"loading"}),(0,u.jsx)("iframe",{title:"Map",id:"map",src:"https://maps.google.com/maps?q=iiit%20bhubaneswar&t=&z=15&ie=UTF8&iwloc=&output=embed"})]})}e.default=(0,t.memo)(n)}}]);
-//# sourceMappingURL=318.f8659608.chunk.js.map
