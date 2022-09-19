@@ -28,11 +28,11 @@ function Intro({ isDark, all }) {
 								<Typewriter
 									options={{
 										strings: [
-											'Competitive Programmer',
-											'MERN Stack Developer',
-											'SHI Finalist',
-											'ICPC Regionalist',
-											'Speacialist @CF',
+											"Competitive Programmer",
+											"MERN Stack Developer",
+											"SHI 2022 Finalist",
+											"ICPC 21-22 Regionalist",
+											"Speacialist @CF",
 										],
 										autoStart: true,
 										loop: true,
