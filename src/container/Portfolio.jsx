@@ -44,8 +44,7 @@ function Portfolio({ isDark, all }) {
 					{list.map((item) => (
 						<NavLink
 							to={`${item.id}`}
-							exact
-							activeClassName="active"
+							activeclassname="active"
 							key={item.id}
 						>
 							<Tab isDark={isDark}>{item.title}</Tab>
