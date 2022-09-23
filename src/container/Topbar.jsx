@@ -1,97 +1,103 @@
-import { memo } from "react";
-import Styled from "styled-components";
-// import PersonIcon from "@mui/icons-material/Person";
+import { memo } from 'react';
+import Styled from 'styled-components';
 import CallIcon from '@mui/icons-material/Call';
-import EmailIcon from "@mui/icons-material/Email";
-import DownloadIcon from "@mui/icons-material/Download";
-import Hamburger from "../components/Hamburger";
-import { useAlert } from "react-alert";
+import EmailIcon from '@mui/icons-material/Email';
+import DownloadIcon from '@mui/icons-material/Download';
+import Hamburger from '../components/Hamburger';
+import { useAlert } from 'react-alert';
+
+const Data = {
+	email: 'HarshRajGupta@hotmail.com',
+	number: '+917607642202',
+	resume: 'https://drive.google.com/file/d/1g0lGlqeTgYr0o5zz8gMmHQZ7w8mkkwMa',
+};
 
 function TopBar({ menuOpen, setMenuOpen, isDark, setDark }) {
-  const alert = useAlert().show;
-  return (
-    <Container className={!menuOpen && "active"} isDark={isDark}>
-      <Hamburger
-        showMenu={menuOpen}
-        setMenu={setMenuOpen}
-        isDark={isDark}
-        setDark={setDark}
-      />
-      <Wrap>
-        <LeftBar>
-          <MyName isDark={isDark} href="#Home">
-            harsh.
-          </MyName>
-          <Item>
-            <CallIcon
-              className="icon"
-              onClick={() => {
-                navigator.clipboard.writeText("+917607642202");
-                alert(`Mobile Number has been copied on the clipboard`);
-              }}
-            />
-            <ItemText
-              onClick={() => {
-                navigator.clipboard.writeText("+917607642202");
-                alert(`Mobile Number has been copied on the clipboard`);
-              }}
-            >
-              +91 7607642202
-            </ItemText>
-          </Item>
-          <Item>
-            <EmailIcon
-              className="icon"
-              onClick={() => {
-                navigator.clipboard.writeText("1amHarsh.RG@gmail.com");
-                alert(`Email id has been copied on the clipboard`);
-              }}
-            />
-            <ItemText
-              onClick={() => {
-                navigator.clipboard.writeText("1amHarsh.RG@gmail.com");
-                alert(`Email id has been copied on the clipboard`);
-              }}
-            >
-              1amHarsh.RG@gmail.com
-            </ItemText>
-          </Item>
-          <Item>
-            <DownloadIcon
-              className="icon"
-              onClick={() =>
-                window.open(
-                  "https://drive.google.com/file/d/1g0lGlqeTgYr0o5zz8gMmHQZ7w8mkkwMa"
-                )
-              }
-            />
-            <ItemText
-              onClick={() =>
-                window.open(
-                  "https://drive.google.com/file/d/1g0lGlqeTgYr0o5zz8gMmHQZ7w8mkkwMa"
-                )
-              }
-            >
-              Resume
-            </ItemText>
-          </Item>
-        </LeftBar>
-        <RightBar>
-          <HamBurger
-            onClick={() => {
-              setMenuOpen(!menuOpen);
-              // setDark(!isDark);
-            }}
-            className={menuOpen && "active"}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </HamBurger>
-        </RightBar>
-      </Wrap>
-    </Container>
-  );
+	const alert = useAlert().show;
+	return (
+		<Container
+			className={!menuOpen && 'active'}
+			isDark={isDark}
+		>
+			<Hamburger
+				showMenu={menuOpen}
+				setMenu={setMenuOpen}
+				isDark={isDark}
+				setDark={setDark}
+			/>
+			<Wrap>
+				<LeftBar>
+					<MyName
+						isDark={isDark}
+						href="#Home"
+					>
+						harsh.
+					</MyName>
+					<Item>
+						<CallIcon
+							className="icon"
+							onClick={() => {
+								navigator.clipboard.writeText(Data.number);
+								alert(
+									`Mobile Number has been copied on the clipboard`,
+								);
+							}}
+						/>
+						<ItemText
+							onClick={() => {
+								navigator.clipboard.writeText(Data.number);
+								alert(
+									`Mobile Number has been copied on the clipboard`,
+								);
+							}}
+						>
+							{Data.number}
+						</ItemText>
+					</Item>
+					<Item>
+						<EmailIcon
+							className="icon"
+							onClick={() => {
+								navigator.clipboard.writeText(Data.email);
+								alert(
+									`Email id has been copied on the clipboard`,
+								);
+							}}
+						/>
+						<ItemText
+							onClick={() => {
+								navigator.clipboard.writeText(Data.email);
+								alert(
+									`Email id has been copied on the clipboard`,
+								);
+							}}
+						>
+							{Data.email}
+						</ItemText>
+					</Item>
+					<Item>
+						<DownloadIcon
+							className="icon"
+							onClick={() => window.open(Data.resume)}
+						/>
+						<ItemText onClick={() => window.open(Data.resume)}>
+							Resume
+						</ItemText>
+					</Item>
+				</LeftBar>
+				<RightBar>
+					<HamBurger
+						onClick={() => setMenuOpen(!menuOpen)}
+						className={menuOpen && 'active'}
+					>
+						<span></span>
+						<span></span>
+						<span></span>
+					</HamBurger>
+				</RightBar>
+			</Wrap>
+		</Container>
+	);
 }
 
 const Wrap = Styled.div`
@@ -126,7 +132,7 @@ const MyName = Styled.a`
     @media (max-width: 300px) {
         font-size: 18px;
     }
-	color: ${({ isDark }) => (isDark ? "#00c4cc" : "rgba(2, 12, 23, 0.9)")};
+	color: ${({ isDark }) => (isDark ? '#00c4cc' : 'rgba(2, 12, 23, 0.9)')};
 `;
 const Item = Styled.div`
     grid-template-columns: auto auto;
@@ -213,8 +219,8 @@ const Container = Styled.div`
     transform: width 0s, height 0s;
     transition: all 0.25s ease-in-out;
 	background: ${({ isDark }) =>
-    isDark ? "rgba(2, 12, 23,0.5)" : "rgba(255, 255, 255, 0.1)"};
-	color: ${({ isDark }) => (isDark ? "#5cb6f9" : "#15023a")};
+		isDark ? 'rgba(2, 12, 23,0.5)' : 'rgba(255, 255, 255, 0.1)'};
+	color: ${({ isDark }) => (isDark ? '#5cb6f9' : '#15023a')};
     @media (max-width: 540px) {
         height: 56px;
     }

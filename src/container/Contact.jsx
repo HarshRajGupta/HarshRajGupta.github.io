@@ -47,7 +47,6 @@ function Contact({ isDark }) {
 		e.preventDefault();
 		if (status === 'send') {
 			setStatus('sending');
-			// console.log(form.current);
 			localStorage.setItem('M$Ppl3R#3p&Bz994C93t', 'sending');
 			emailjs
 				.sendForm(

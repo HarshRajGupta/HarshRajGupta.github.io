@@ -12,15 +12,11 @@ const Projects = lazy(() => import('./container/Projects'));
 const About = lazy(() => import('./container/About'));
 const Contact = lazy(() => import('./container/Contact'));
 const Background = lazy(() => import('./container/BG'));
-// const {Intro, About, Portfolio, Projects, Contact, TopBar, Background} = lazy(() => import('./container'));
 
 // import {Intro, About, Portfolio, Projects, Contact, TopBar, Background} from './container'
 
 function App() {
-	// const BackToHome = useMemo(() => {
-	// 	window.location.href = '';
-	// });
-	var theme = true;
+	let theme = true;
 	if (localStorage.getItem('&7aQ@sb95ZF1cP#4&m3K') === 'false') {
 		theme = false;
 	}
@@ -135,7 +131,6 @@ function App() {
 					</Suspense>
 					<Background />
 				</Container>
-				{/* <Spinner /> */}
 			</AlertProvider>
 		</Suspense>
 	);
