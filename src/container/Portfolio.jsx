@@ -98,7 +98,7 @@ const Container = Styled.main`
         overflow: hidden !important;
     }
 `;
-const PageHeading = Styled.div`
+const PageHeading = Styled.h1`
     font-size: 64px;
     font-family:  Poppins;
     margin: 0 auto;

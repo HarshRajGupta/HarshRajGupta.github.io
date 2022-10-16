@@ -165,7 +165,7 @@ const Wrap = Styled.ul`
     }
 `;
 
-const LineOne = Styled.li`
+const LineOne = Styled.h1`
     font-family: Montserrat;
     font-size: 24px;
     @media (max-width: 1280px) {
@@ -179,7 +179,7 @@ const LineOne = Styled.li`
     }
 `;
 
-const LineTwo = Styled.li`
+const LineTwo = Styled.h3`
     font-family:  Poppins;
     font-size: 64px;
     margin: 10px 0;
@@ -197,7 +197,7 @@ const LineTwo = Styled.li`
     }
 `;
 
-const LineThree = Styled.li`
+const LineThree = Styled.h2`
     width: 360px;
     font-size: 32px;
     @media (max-width: 1280px) {

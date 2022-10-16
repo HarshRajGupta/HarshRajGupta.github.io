@@ -15,7 +15,7 @@ function Project({ data }) {
 									alt={data.title}
 								/>
 							</IconContainer>
-							<h2>{data.title}</h2>
+							<h1>{data.title}</h1>
 							<p className="desc">{data.desc}</p>
 							<a
 								target="_blank"
@@ -77,7 +77,7 @@ const LeftContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	h2 {
+	h1 {
 		font-size: 23px;
 		font-weight: 700;
 	}

@@ -219,12 +219,6 @@ const Left = Styled.div`
     align-items: center;
 `;
 
-// const Image = Styled.img`
-// @media (max-width: 1023px) {
-//     display: none
-// }
-// `;
-
 const Right = Styled.div`
     width: 100%;
     height: 100%;
@@ -233,13 +227,12 @@ const Right = Styled.div`
 `;
 
 const Wrap = Styled.form`
-    /* grid-gap: 32px; */
     width: 100%;
     height: 75vh;
     align-items: center;
 `;
 
-const Title = Styled.div`
+const Title = Styled.h1`
     font-size: 42px;
     font-family: 'Pacifico', cursive;
     font-weight: 500;

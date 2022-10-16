@@ -29,7 +29,6 @@ function TopBar({ menuOpen, setMenuOpen, isDark, setDark }) {
 				<LeftBar>
 					<MyName
 						isDark={isDark}
-						href="#Home"
 					>
 						harsh.
 					</MyName>
@@ -118,7 +117,7 @@ const LeftBar = Styled.div`
 	width: max-content;
 `;
 
-const MyName = Styled.a`
+const MyName = Styled.h1`
     font-size: 42px;
     font-weight: 600;
     text-decoration: none;

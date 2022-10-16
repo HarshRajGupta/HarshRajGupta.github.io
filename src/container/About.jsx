@@ -65,7 +65,7 @@ const Container = Styled.div`
 	position: relative;
 `;
 
-const PageHeading = Styled.div`
+const PageHeading = Styled.h1`
 	color: #00c4cc;
     font-size: 64px;
     font-family:  Poppins;
