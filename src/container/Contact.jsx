@@ -208,7 +208,7 @@ const Container = Styled.div`
         overflow: visible;
     }
     background: ${({ isDark }) =>
-		isDark ? 'rgba(2, 12, 23,0.5)' : 'rgba(255, 255, 255, 0.5)'};
+		isDark ? 'rgba(2, 12, 23,0.5)' : 'rgba(255, 255, 255, 0.69)'};
     /* background: rgba(2, 12, 23, 0.5); */
 `;
 

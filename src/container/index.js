@@ -1,7 +1,9 @@
-export { default as Intro } from "./Intro";
+export { default as Home } from "./Home";
 export { default as About } from "./About";
 export { default as Portfolio } from "./Portfolio";
 export { default as Projects } from "./Projects";
 export { default as Contact } from "./Contact";
 export { default as TopBar } from "./Topbar";
-export { default as Background } from "./BG";
+export { default as Background } from "./Background";
+export { default as LightBackground } from "./LightBackground";
+export { default as DarkBackground } from "./DarkBackground";

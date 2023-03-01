@@ -7,7 +7,7 @@ import Hamburger from '../components/Hamburger';
 import { useAlert } from 'react-alert';
 
 const Data = {
-	email: 'HarshRajGupta@hotmail.com',
+	email: 'HarshR4jGupta@gmail.com',
 	number: '+917607642202',
 	resume: 'https://drive.google.com/file/d/1g0lGlqeTgYr0o5zz8gMmHQZ7w8mkkwMa',
 };
@@ -88,6 +88,7 @@ function TopBar({ menuOpen, setMenuOpen, isDark, setDark }) {
 					<HamBurger
 						onClick={() => setMenuOpen(!menuOpen)}
 						className={menuOpen && 'active'}
+						isDark={isDark}
 					>
 						<span></span>
 						<span></span>
@@ -131,7 +132,8 @@ const MyName = Styled.h1`
     @media (max-width: 300px) {
         font-size: 18px;
     }
-	color: ${({ isDark }) => (isDark ? '#00c4cc' : 'rgba(2, 12, 23, 0.9)')};
+	cursor: pointer;
+	/* color: ${({ isDark }) => (isDark ? '#00c4cc' : 'rgba(2, 12, 23, 0.9)')}; */
 `;
 const Item = Styled.div`
     grid-template-columns: auto auto;
@@ -147,6 +149,11 @@ const Item = Styled.div`
         	width: 16px;
     	}
 	}
+	/* transition: all 250ms ease-in-out !important; */
+	transition-delay: 0ms !important;
+	&:hover {
+		color: #00c4cc;
+	}
 `;
 const ItemText = Styled.div`
     font-family: Poppins;
@@ -157,7 +164,7 @@ const ItemText = Styled.div`
     @media (max-width: 300px) {
         font-size: 10px;
     }
-    font-weight: 600;
+    font-weight: 500;
 	cursor: pointer;
 	@media (max-width: 1280px) {
         display: none;
@@ -184,10 +191,10 @@ const HamBurger = Styled.div`
 		@media (max-width: 414px) {
 			height: 2px;
 		}
-        /* background-color: #15023a; */
-		background-color: #00c4cc;
+        background-color: ${({ isDark }) => (isDark ? '#fff' : '#15023a')};
+		/* background-color: #00c4cc; */
         transform-origin: right;
-        transition: all 1.5s ease;
+        transition: all 1s ease;
         border-radius: 256px;
     }
     &.active {
@@ -219,7 +226,8 @@ const Container = Styled.div`
     transition: all 0.25s ease-in-out;
 	background: ${({ isDark }) =>
 		isDark ? 'rgba(2, 12, 23,0.5)' : 'rgba(255, 255, 255, 0.1)'};
-	color: ${({ isDark }) => (isDark ? '#5cb6f9' : '#15023a')};
+	/* color: ${({ isDark }) => (isDark ? '#5cb6f9' : '#15023a')}; */
+	color: ${({ isDark }) => (isDark ? '#fff' : '#15023a')};
     @media (max-width: 540px) {
         height: 56px;
     }

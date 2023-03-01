@@ -2,11 +2,11 @@ import { memo } from 'react';
 import styled from 'styled-components';
 import Zoom from 'react-reveal/Zoom';
 
-function Project({ data }) {
+function Project({ data, isDark }) {
 	return (
 		<Container>
 			<Zoom>
-				<Item>
+				<Item isDark={isDark}>
 					<Left>
 						<LeftContainer>
 							<IconContainer>
@@ -53,7 +53,8 @@ const Container = styled.div`
 const Item = styled.div`
 	width: 764px;
 	height: 360px;
-	background-color: white;
+	background-color: ${({ isDark }) => (isDark ? 'rgba(255, 255, 255, 0.9)' : 'rgba(0, 0, 0, 0.7)')};
+	color : ${({ isDark }) => (!isDark ? '#fff' : '#000')};
 	border-radius: 20px;
 	display: flex;
 	align-items: center;
@@ -79,15 +80,16 @@ const LeftContainer = styled.div`
 	justify-content: space-between;
 	h1 {
 		font-size: 23px;
-		font-weight: 700;
+		font-weight: 600;
 	}
 	p {
 		margin: 8px 0;
 		max-width: 100%;
 		max-height: 144px;
 		font-style: italic;
-		font-family: 'Montserrat', sans-serif;
-		font-weight: 700;
+		/* font-family: 'Montserrat', sans-serif; */
+		font-family: 'Ubuntu Mono', monospace;
+		font-weight: 300;
 		font-size: 10px;
 		line-height: 16px;
 		letter-spacing: 0.6px;

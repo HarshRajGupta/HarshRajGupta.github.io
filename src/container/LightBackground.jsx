@@ -5,7 +5,7 @@ import { loadFull } from "tsparticles";
 const particlesInit = async (main) => {
   await loadFull(main);
 };
-const particlesLoaded = (container) => {
+const particlesLoaded = () => {
   console.log("Welcome");
 };
 
@@ -18,23 +18,9 @@ function Background() {
       options={{
         autoPlay: true,
         background: {
-          color: {
-            value: "",
-          },
-          image: "",
-          position: "",
-          repeat: "",
-          size: "",
-          opacity: 1,
+          opacity: 0,
         },
         backgroundMask: {
-          composite: "destination-out",
-          cover: {
-            color: {
-              value: "#fff",
-            },
-            opacity: 0.1,
-          },
           enable: false,
         },
         fullScreen: {
@@ -51,12 +37,6 @@ function Background() {
               enable: true,
               mode: "repulse",
             },
-            // onDiv: {
-            //     selectors: [],
-            //     enable: false,
-            //     mode: [],
-            //     type: 'circle',
-            // },
             onHover: {
               enable: true,
               mode: ["attract"],
@@ -81,209 +61,21 @@ function Background() {
             bounce: {
               distance: 200,
             },
-            // bubble: {
-            //     distance: 200,
-            //     duration: 0.4,
-            //     mix: false,
-            //     divs: {
-            //         distance: 200,
-            //         duration: 0.4,
-            //         mix: false,
-            //         selectors: [],
-            //     },
-            // },
-            // connect: {
-            //     distance: 80,
-            //     links: {
-            //         opacity: 0.5,
-            //     },
-            //     radius: 60,
-            // },
-            // grab: {
-            //     distance: 100,
-            //     links: {
-            //         blink: false,
-            //         consent: false,
-            //         opacity: 1,
-            //     },
-            // },
-            // light: {
-            //     area: {
-            //         gradient: {
-            //             start: {
-            //                 value: '#ffffff',
-            //             },
-            //             stop: {
-            //                 value: '#000000',
-            //             },
-            //         },
-            //         radius: 1000,
-            //     },
-            //     shadow: {
-            //         color: {
-            //             value: '#000000',
-            //         },
-            //         length: 2000,
-            //     },
-            // },
-            // push: {
-            //     default: true,
-            //     groups: [],
-            //     quantity: 4,
-            // },
-            // remove: {
-            //     quantity: 2,
-            // },
             repulse: {
-              distance: 250,
+              distance: 256,
               duration: 0.4,
-              factor: 100,
-              speed: 5,
-              maxSpeed: 150,
+              factor: 1,
+              speed: 1,
+              maxSpeed: 69,
               easing: "ease-out-quad",
               divs: {
-                distance: 200,
+                distance: 206,
                 duration: 0.4,
-                factor: 100,
+                factor: 1,
                 speed: 1,
-                maxSpeed: 50,
+                maxSpeed: 69,
                 easing: "ease-out-quad",
                 selectors: [],
-              },
-            },
-            // slow: {
-            //     factor: 3,
-            //     radius: 200,
-            // },
-            trail: {
-              delay: 0.005,
-              pauseOnStop: true,
-              quantity: 5,
-              particles: {
-                color: {
-                  value: "#ff0000",
-                  // value: '#5cb6f9',
-                  animation: {
-                    enable: true,
-                    // enable: false,
-                    speed: 400,
-                    sync: true,
-                  },
-                },
-                collisions: {
-                  enable: true,
-                  bounce: {
-                    horizontal: {
-                      random: {},
-                    },
-                    vertical: {
-                      random: {},
-                    },
-                  },
-                  overlap: {},
-                },
-                links: {
-                  enable: false,
-                  shadow: {},
-                  triangles: {},
-                },
-                move: {
-                  outModes: {
-                    default: "destroy",
-                  },
-                  speed: 1,
-                  angle: {},
-                  attract: {
-                    rotate: {},
-                  },
-                  distance: {},
-                  gravity: {},
-                  path: {
-                    delay: {
-                      random: {},
-                    },
-                  },
-                  trail: {},
-                },
-                size: {
-                  value: 3,
-                  animation: {
-                    enable: true,
-                    speed: 5,
-                    minimumValue: 1,
-                    sync: true,
-                    startValue: "min",
-                    destroy: "max",
-                  },
-                  random: {},
-                },
-                bounce: {
-                  horizontal: {
-                    random: {},
-                  },
-                  vertical: {
-                    random: {},
-                  },
-                },
-                destroy: {
-                  split: {
-                    factor: {
-                      random: {},
-                    },
-                    rate: {
-                      random: {},
-                    },
-                  },
-                },
-                life: {
-                  delay: {
-                    random: {},
-                  },
-                  duration: {
-                    random: {},
-                  },
-                },
-                number: {
-                  density: {},
-                },
-                opacity: {
-                  animation: {},
-                  random: {},
-                },
-                roll: {
-                  darken: {},
-                  enlighten: {},
-                },
-                rotate: {
-                  animation: {},
-                },
-                shadow: {
-                  offset: {},
-                },
-                shape: {},
-                stroke: {
-                  color: {
-                    value: "",
-                    animation: {
-                      count: 0,
-                      enable: false,
-                      offset: {
-                        max: 0,
-                        min: 0,
-                      },
-                      speed: 0,
-                      sync: false,
-                    },
-                  },
-                },
-                tilt: {
-                  animation: {},
-                },
-                twinkle: {
-                  lines: {},
-                  particles: {},
-                },
-                wobble: {},
               },
             },
           },
@@ -339,32 +131,8 @@ function Background() {
           },
           color: {
             // value: "#ff0000",
-            value: '#5cb6f9',
+            value: '#000',
             // value: `#5cb6f9`,
-            animation: {
-              h: {
-                count: 0,
-                // enable: true,
-                enable: true,
-                offset: 0,
-                speed: 50,
-                sync: false,
-              },
-              s: {
-                count: 0,
-                enable: true,
-                offset: 0,
-                speed: 1,
-                sync: true,
-              },
-              l: {
-                count: 0,
-                enable: true,
-                offset: 0,
-                speed: 1,
-                sync: true,
-              },
-            },
           },
           destroy: {
             mode: "none",
@@ -414,8 +182,9 @@ function Background() {
           links: {
             // blink: true,
             color: {
-              value: "random",
+            //   value: "random",
               // value: '#5cb6f9',
+              value: '#000'
             },
             consent: false,
             distance: 100,
@@ -425,7 +194,7 @@ function Background() {
             shadow: {
               blur: 8,
               color: {
-                value: "#fff",
+                value: "#5ae2f9",
               },
               enable: true,
             },
@@ -503,13 +272,7 @@ function Background() {
             warp: false,
           },
           number: {
-            density: {
-              enable: true,
-              area: 1536,
-              factor: 512,
-            },
-            limit: 100,
-            // value: 100,
+            value: 69,
           },
           opacity: {
             random: {
@@ -531,48 +294,15 @@ function Background() {
             },
           },
           orbit: {
-            animation: {
-              count: 0,
-              enable: false,
-              speed: 1,
-              sync: false,
-            },
             enable: false,
-            opacity: 1,
-            rotation: {
-              random: {
-                enable: false,
-                minimumValue: 0,
-              },
-              value: 45,
-            },
             width: 1,
           },
           reduceDuplicates: false,
           repulse: {
-            random: {
-              enable: false,
-              minimumValue: 0,
-            },
-            value: 0,
             enabled: false,
-            distance: 1,
-            duration: 1,
-            factor: 1,
-            speed: 1,
           },
           roll: {
-            darken: {
-              enable: false,
-              value: 0,
-            },
             enable: false,
-            enlighten: {
-              enable: false,
-              value: 0,
-            },
-            mode: "vertical",
-            speed: 25,
           },
           rotate: {
             random: {
@@ -625,30 +355,7 @@ function Background() {
           stroke: {
             width: 0,
             color: {
-              value: "",
-              animation: {
-                h: {
-                  count: 0,
-                  enable: false,
-                  offset: 0,
-                  speed: 0,
-                  sync: false,
-                },
-                s: {
-                  count: 0,
-                  enable: false,
-                  offset: 0,
-                  speed: 1,
-                  sync: true,
-                },
-                l: {
-                  count: 0,
-                  enable: false,
-                  offset: 0,
-                  speed: 1,
-                  sync: true,
-                },
-              },
+              value: "#5ae2f9"
             },
           },
           tilt: {

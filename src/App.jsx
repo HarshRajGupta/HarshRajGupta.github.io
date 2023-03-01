@@ -1,25 +1,32 @@
-import { Suspense, memo, lazy, useState, useEffect } from 'react';
+import { Suspense, memo, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { transitions, positions, Provider as AlertProvider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
 import { Routes, Route } from 'react-router-dom';
 import Spinner from './components/Spinner';
 
-const TopBar = lazy(() => import('./container/Topbar'));
-const Intro = lazy(() => import('./container/Intro'));
-const Portfolio = lazy(() => import('./container/Portfolio'));
-const Projects = lazy(() => import('./container/Projects'));
-const About = lazy(() => import('./container/About'));
-const Contact = lazy(() => import('./container/Contact'));
-const Background = lazy(() => import('./container/BG'));
 
-// import {Intro, About, Portfolio, Projects, Contact, TopBar, Background} from './container'
+
+// const TopBar = lazy(() => import('./container/Topbar'));
+// const Intro = lazy(() => import('./container/Intro'));
+// const Portfolio = lazy(() => import('./container/Portfolio'));
+// const Projects = lazy(() => import('./container/Projects'));
+// const About = lazy(() => import('./container/About'));
+// const Contact = lazy(() => import('./container/Contact'));
+// const Background = lazy(() => import('./container/BG'));
+// const Background = lazy(() => import('./components/Background'));
+// const LightBackground = lazy(() => import('./container/LightBackground'));
+// const DarkBackground = lazy(() => import('./container/DarkBackground'));
+
+import {Home, About, Portfolio, Projects, Contact, TopBar, LightBackground, DarkBackground} from './container'
 
 function App() {
+	// const alert = useAlert().show;
 	let theme = true;
 	if (localStorage.getItem('&7aQ@sb95ZF1cP#4&m3K') === 'false') {
 		theme = false;
 	}
+	// alert(`Welcome to my portfolio website. This website is still under development.`);
 	const [isDark, setDark] = useState(theme);
 	useEffect(() => {
 		if (isDark) {
@@ -74,7 +81,7 @@ function App() {
 								<Routes>
 									<Route
 										path="/home"
-										element={<Intro isDark={isDark} />}
+										element={<Home isDark={isDark} />}
 									/>
 									<Route
 										path="/about"
@@ -96,7 +103,7 @@ function App() {
 										path="/*"
 										element={
 											<>
-												<Intro
+												<Home
 													all
 													isDark={isDark}
 												/>
@@ -129,7 +136,9 @@ function App() {
 							</Sections>
 						}
 					</Suspense>
-					<Background />
+
+					{isDark ? <DarkBackground /> : <LightBackground />}
+					{/* <Background /> */}
 				</Container>
 			</AlertProvider>
 		</Suspense>

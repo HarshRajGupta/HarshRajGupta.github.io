@@ -28,11 +28,12 @@ function Intro({ isDark, all }) {
 								<Typewriter
 									options={{
 										strings: [
-											"Competitive Programmer",
-											"MERN Stack Developer",
-											"SHI 2022 Finalist",
-											"ICPC 21-22 Regionalist",
-											"Speacialist @CF",
+											'Competitive Programmer',
+											'MERN Stack Developer',
+											'SIH 2022 Finalist',
+											'ICPC 21-22 Regionalist',
+											'Speacialist @CF',
+                                            'Codechef 4*',
 										],
 										autoStart: true,
 										loop: true,
@@ -142,12 +143,8 @@ const Right = Styled.div`
 
 const Wrap = Styled.ul`
     height: max-content;
-    color: #00c4cc;
-    color: ${({ isDark }) => (isDark ? '#00c4cc' : 'rgba(2, 12, 23,0.9)')};
-    /* background: rgba(255, 255, 255, 0.5); */
-    /* background: ${({ isDark }) =>
-		isDark ? 'rgba(2, 12, 23,0.1)' : 'rgba(255, 255, 255, 0.2)'}; */
-    /* background: rgba(2, 12, 23,0.1); */
+    /* color: ${({ isDark }) => isDark ? '#00c4cc' : 'rgba(2, 12, 23,0.9)'}; */
+    color: ${({ isDark }) => (isDark ? '#d1f4f5' : '#15023a')};
     user-select: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -159,14 +156,16 @@ const Wrap = Styled.ul`
     }
     cursor: none;
     * {
-        text-shadow: 3px 4px 7px ${({ isDark }) =>
-			isDark ? 'rgba(255, 255, 255, 0.3)' : 'rgba(81,67,21,0.8)'};
+        /* text-shadow: 3px 4px 7px ${({ isDark }) =>
+			isDark ? 'rgba(255, 255, 255, 0.3)' : 'rgba(81,67,21,0.8)'}; */
+        /* font-weight: bold; */
         overflow: visible;
     }
 `;
 
 const LineOne = Styled.h1`
     font-family: Montserrat;
+    font-weight: 600;
     font-size: 24px;
     @media (max-width: 1280px) {
         margin: 0 auto;
@@ -180,11 +179,17 @@ const LineOne = Styled.h1`
 `;
 
 const LineTwo = Styled.h3`
-    font-family:  Poppins;
+    font-weight: bold;
+    font-family:  'sign';
+    /* font-family: Poppins; */
     font-size: 64px;
     margin: 10px 0;
-    font-weight: 500;
     cursor: none;
+    background: -webkit-linear-gradient(#5cb6f9, #00c4cc, #185a9d);
+    text-shadow: 3px 4px 7px ${({ isDark }) =>
+		isDark ? 'rgba(255, 255, 255, 0.2)' : 'none'};
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
     width: 100%;
     @media (max-width: 541px) {
         font-size: 56px;
@@ -200,6 +205,8 @@ const LineTwo = Styled.h3`
 const LineThree = Styled.h2`
     width: 360px;
     font-size: 32px;
+    font-family: "Zen Kaku Gothic Antique";
+    font-weight: bold;
     @media (max-width: 1280px) {
         margin: 0 auto;
     }
@@ -215,7 +222,7 @@ const LineThree = Styled.h2`
         display: inline;
     }
     span {
-        color: ${({ isDark }) => (isDark ? 'inherit' : 'crimson')};
+        /* color: ${({ isDark }) => (isDark ? 'inherit' : 'crimson')}; */
         &.blinkingCursor {
             @keyframes typingCursor {
                 0% { opacity: 1 }

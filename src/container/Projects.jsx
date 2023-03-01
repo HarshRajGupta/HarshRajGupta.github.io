@@ -14,7 +14,10 @@ SwiperCore.use([Autoplay, Keyboard]);
 
 function Projects({ isDark, all }) {
 	return (
-		<Container id={'Projects'}>
+		<Container
+			id={'Projects'}
+			isDark={isDark}
+		>
 			<Swiper
 				pagination={{
 					type: 'progressbar',
@@ -61,9 +64,9 @@ const Container = Styled.div`
     	}
     }
 	z-index: 1;
-  width:100%;
-  height: calc(100vh - 71px);
-	background: url('https://user-images.githubusercontent.com/85221003/190643911-5296bdf7-b088-41f7-beff-c3f946a974d4.jpg');
+  	width:100%;
+  	height: calc(100vh - 71px);
+	/* background: url('https://user-images.githubusercontent.com/85221003/190643911-5296bdf7-b088-41f7-beff-c3f946a974d4.jpg'); */
 	background-size: contain;
 	@media (max-width: 540px) {
 		height: calc(100vh - 56px);
@@ -75,14 +78,17 @@ const Container = Styled.div`
     }
     position: relative;
     overflow: hidden;
-	.swiper-button-next:after, .swiper-button-prev:after {
+	.swiper-button-next::after, .swiper-button-prev::after {
 		opacity: 0.9;
-		color : rgb(0, 196, 204);
+		color: ${({ isDark }) => (isDark ? '#fff' : '#15023a')};
+	}
+	.swiper-pagination-progressbar {
+		background: none;
 	}
 	.swiper-pagination-progressbar-fill {
 		width: 100vw;
 		margin: 0;
-		background: rgb(0, 196, 204);
+		background: ${({ isDark }) => (isDark ? '#fff' : '#15023a')} !important;
 	}
 `;
 

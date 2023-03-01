@@ -140,14 +140,14 @@ const Item = Styled.li`
         height: 4px;
         bottom: 0px;
         left: 0;
-        background-color: transparent;
+        /* background-color: transparent; */
         transform-origin: bottom right;
         transition: transform 512ms ease-out;
         border-radius: 32px;
-        background: linear-gradient(#185a9d, #15023a);
+        background: linear-gradient(#5cb6f9, #00c4cc, #5ae2e2);
     }
     &:hover {
-        color: #185a9d;
+        color: #5ae2e2;
         font-weight: Black;
         opacity: 0.75;
         transition-delay: 0s !important;

@@ -10,7 +10,7 @@ const Spinner = lazy(() => import('../components/Spinner'));
 
 const list = [
 	{
-		id: 'featured',
+		id: '',
 		title: 'Featured',
 	},
 	{
@@ -39,7 +39,7 @@ function Portfolio({ isDark, all }) {
 	return (
 		<Suspense fallback={<Spinner text={`Loading`} />}>
 			<Container id={'Portfolio'}>
-				<PageHeading>Portfolio</PageHeading>
+				<PageHeading isDark={isDark}>Portfolio</PageHeading>
 				<Tabs isDark={isDark}>
 					{list.map((item) => (
 						<NavLink
@@ -106,12 +106,11 @@ const PageHeading = Styled.h1`
     font-weight: 500;
     display: block;
     /* color: crimson; */
-    color: #00c4cc;
+    color: ${({ isDark }) => (isDark ? '#fff' : '#15023a')};
     &::before {
         content: "My ";
         font-family: 'Pacifico', cursive;
         /* color: #15023a; */
-        color: #5cb6f9;
         font-weight: 400;
     }
     @media (max-width: 540px) {
@@ -135,6 +134,7 @@ const Tabs = Styled.ul`
     /* background: rgba(255, 255, 255, 0.2); */
     background: ${({ isDark }) =>
 		isDark ? 'rgba(2, 12, 23,0.1)' : 'rgba(255, 255, 255, 0.1)'};
+	color: ${({ isDark }) => (isDark ? '#fff' : '#15023a')};
     .active li{
         color: #00c4cc !important;
 		transform: scale(1) !important;
