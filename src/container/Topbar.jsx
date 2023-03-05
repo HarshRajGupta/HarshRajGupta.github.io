@@ -3,7 +3,7 @@ import Styled from 'styled-components';
 import CallIcon from '@mui/icons-material/Call';
 import EmailIcon from '@mui/icons-material/Email';
 import DownloadIcon from '@mui/icons-material/Download';
-import { HamBurger } from '../components';
+import { HamBurger, Theme } from '../components';
 import { useAlert } from 'react-alert';
 
 const Data = {
@@ -28,6 +28,10 @@ function TopBar({ menuOpen, setMenuOpen, isDark, setDark }) {
 			<Wrap>
 				<LeftBar>
 					<MyName isDark={isDark}>harsh.</MyName>
+					<Theme
+						setDark={setDark}
+						isDark={!isDark}
+					/>
 					<Item>
 						<CallIcon
 							className="icon"
@@ -105,7 +109,7 @@ const Wrap = Styled.div`
 `;
 
 const LeftBar = Styled.div`
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto;
     align-items: center;
     grid-gap: 70px;
     @media (max-width: 1280px) {
@@ -131,6 +135,7 @@ const MyName = Styled.h1`
 	cursor: pointer;
 	/* color: ${({ isDark }) => (isDark ? '#00c4cc' : 'rgba(2, 12, 23, 0.9)')}; */
 `;
+
 const Item = Styled.div`
     grid-template-columns: auto auto;
     grid-gap: 4px;
