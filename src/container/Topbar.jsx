@@ -3,7 +3,7 @@ import Styled from 'styled-components';
 import CallIcon from '@mui/icons-material/Call';
 import EmailIcon from '@mui/icons-material/Email';
 import DownloadIcon from '@mui/icons-material/Download';
-import Hamburger from '../components/Hamburger';
+import { HamBurger } from '../components';
 import { useAlert } from 'react-alert';
 
 const Data = {
@@ -19,7 +19,7 @@ function TopBar({ menuOpen, setMenuOpen, isDark, setDark }) {
 			className={!menuOpen && 'active'}
 			isDark={isDark}
 		>
-			<Hamburger
+			<HamBurger
 				showMenu={menuOpen}
 				setMenu={setMenuOpen}
 				isDark={isDark}
@@ -27,11 +27,7 @@ function TopBar({ menuOpen, setMenuOpen, isDark, setDark }) {
 			/>
 			<Wrap>
 				<LeftBar>
-					<MyName
-						isDark={isDark}
-					>
-						harsh.
-					</MyName>
+					<MyName isDark={isDark}>harsh.</MyName>
 					<Item>
 						<CallIcon
 							className="icon"
@@ -85,7 +81,7 @@ function TopBar({ menuOpen, setMenuOpen, isDark, setDark }) {
 					</Item>
 				</LeftBar>
 				<RightBar>
-					<HamBurger
+					<Hamburger
 						onClick={() => setMenuOpen(!menuOpen)}
 						className={menuOpen && 'active'}
 						isDark={isDark}
@@ -93,7 +89,7 @@ function TopBar({ menuOpen, setMenuOpen, isDark, setDark }) {
 						<span></span>
 						<span></span>
 						<span></span>
-					</HamBurger>
+					</Hamburger>
 				</RightBar>
 			</Wrap>
 		</Container>
@@ -172,7 +168,7 @@ const ItemText = Styled.div`
 `;
 const RightBar = Styled.div``;
 
-const HamBurger = Styled.div`
+const Hamburger = Styled.div`
     width: 24px;
 	@media (max-width: 414px) {
 		width: 20px;

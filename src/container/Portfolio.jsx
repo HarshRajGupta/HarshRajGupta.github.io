@@ -1,12 +1,12 @@
 import Styled from 'styled-components';
-import { Suspense, memo, lazy } from 'react';
+import { Suspense, memo } from 'react';
 import { Routes, Route, NavLink } from 'react-router-dom';
 // import ShowCase from '../components/ShowCase';
 // import DragDownButton from '../components/DragDownButton';
-
-const ShowCase = lazy(() => import('../components/ShowCase'));
-const DragDownButton = lazy(() => import('../components/DragDownButton'));
-const Spinner = lazy(() => import('../components/Spinner'));
+import { ShowCase, DragDownButton, Spinner } from '../components';
+// const ShowCase = lazy(() => import('../components/ShowCase'));
+// const DragDownButton = lazy(() => import('../components/DragDownButton'));
+// const Spinner = lazy(() => import('../components/Spinner'));
 
 const list = [
 	{

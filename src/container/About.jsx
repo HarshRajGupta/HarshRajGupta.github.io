@@ -1,5 +1,5 @@
 import Styled from 'styled-components';
-import DragDownButton from '../components/DragDownButton';
+import { DragDownButton } from '../components';
 import { memo } from 'react';
 import Zoom from 'react-reveal/Zoom';
 
@@ -108,7 +108,8 @@ const AboutMe = Styled.div`
 	display: block;
 	max-height: 55vh;
 	overflow-y: auto;
-	background: ${({ isDark }) => (!isDark ? 'rgba(0, 0, 0, 0.8)' : 'rgba(255, 255, 255, 0.92)')};
+	background: ${({ isDark }) =>
+		!isDark ? 'rgba(0, 0, 0, 0.8)' : 'rgba(255, 255, 255, 0.92)'};
 	border-radius: 2rem;
 	padding: 1rem;
 	p {
@@ -167,7 +168,10 @@ const Sign = Styled.a`
 	cursor: pointer;
 	font-weight: bold;
 	/* background: -webkit-linear-gradient(#185a9d, #15023a);
-	background: ${({ isDark }) => (isDark ? '-webkit-linear-gradient(#fff, #d1f4f5)' : ' -webkit-linear-gradient(#185a9d, #15023a)')};
+	background: ${({ isDark }) =>
+		isDark
+			? '-webkit-linear-gradient(#fff, #d1f4f5)'
+			: ' -webkit-linear-gradient(#185a9d, #15023a)'};
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent; */
 	background: -webkit-linear-gradient(#5cb6f9, #00c4cc, #185a9d);

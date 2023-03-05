@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import Styled from 'styled-components';
 import Typewriter from 'typewriter-effect';
-import DragDownButton from '../components/DragDownButton';
+import { DragDownButton } from '../components';
 import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
 
@@ -33,7 +33,7 @@ function Intro({ isDark, all }) {
 											'SIH 2022 Finalist',
 											'ICPC 21-22 Regionalist',
 											'Speacialist @CF',
-                                            'Codechef 4*',
+											'Codechef 4*',
 										],
 										autoStart: true,
 										loop: true,
@@ -143,7 +143,8 @@ const Right = Styled.div`
 
 const Wrap = Styled.ul`
     height: max-content;
-    /* color: ${({ isDark }) => isDark ? '#00c4cc' : 'rgba(2, 12, 23,0.9)'}; */
+    /* color: ${({ isDark }) =>
+		isDark ? '#00c4cc' : 'rgba(2, 12, 23,0.9)'}; */
     color: ${({ isDark }) => (isDark ? '#d1f4f5' : '#15023a')};
     user-select: none;
     -webkit-user-select: none;

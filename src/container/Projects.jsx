@@ -2,13 +2,13 @@ import { memo } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay, Keyboard, Pagination, Navigation } from 'swiper';
 import { ProjectPosts } from '../data';
-import Project from '../components/Project';
+import { Project, DragDownButton } from '../components';
 import Styled from 'styled-components';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import '../style.css';
-import DragDownButton from '../components/DragDownButton';
+// import DragDownButton from '../components/DragDownButton';
 
 SwiperCore.use([Autoplay, Keyboard]);
 

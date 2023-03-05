@@ -1,5 +1,5 @@
 import { lazy, memo, useState, useRef } from 'react';
-import Spinner from '../components/Spinner';
+import { Spinner } from '../components';
 import emailjs from '@emailjs/browser';
 import Styled from 'styled-components';
 import { useAlert } from 'react-alert';
@@ -98,12 +98,18 @@ function Contact({ isDark }) {
 			isDark={isDark}
 			id="Contact-me"
 		>
-			<Fade left big>
+			<Fade
+				left
+				big
+			>
 				<Left>
 					<Map />
 				</Left>
 			</Fade>
-			<Fade right big>
+			<Fade
+				right
+				big
+			>
 				<Right>
 					<Title>Contact</Title>
 					<Wrap
