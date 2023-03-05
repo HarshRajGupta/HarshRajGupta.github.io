@@ -30,7 +30,7 @@ function TopBar({ menuOpen, setMenuOpen, isDark, setDark }) {
 					<MyName isDark={isDark}>harsh.</MyName>
 					<Theme
 						setDark={setDark}
-						isDark={!isDark}
+						isDark={isDark}
 					/>
 					<Item>
 						<CallIcon
@@ -141,6 +141,9 @@ const Item = Styled.div`
     grid-gap: 4px;
     align-items: center;
     cursor: default;
+	@media (max-width: 1280px) {
+        display: none;
+    }
 	.icon {
 		width: 24px;
 		@media (max-width: 414px) {

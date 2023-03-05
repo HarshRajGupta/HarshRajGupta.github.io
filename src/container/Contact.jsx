@@ -98,19 +98,14 @@ function Contact({ isDark }) {
 			isDark={isDark}
 			id="Contact-me"
 		>
-			<Fade
-				left
-				big
-			>
-				<Left>
+			<Left>
+				<Fade left>
 					<Map />
-				</Left>
-			</Fade>
-			<Fade
-				right
-				big
-			>
-				<Right>
+				</Fade>
+			</Left>
+
+			<Right>
+				<Fade right>
 					<Title>Contact</Title>
 					<Wrap
 						ref={form}
@@ -191,8 +186,8 @@ M202.992,332.528v124.517l58.738-67.927L202.992,332.528z"
 							</Button>
 						</Submit>
 					</Wrap>
-				</Right>
-			</Fade>
+				</Fade>
+			</Right>
 		</Container>
 	);
 }
@@ -228,8 +223,8 @@ const Left = Styled.div`
 const Right = Styled.div`
     width: 100%;
     height: 100%;
-    justify-content: center;
     align-items: center;
+	justify-content: center;
 `;
 
 const Wrap = Styled.form`
@@ -239,6 +234,8 @@ const Wrap = Styled.form`
 `;
 
 const Title = Styled.h1`
+	/* width: 100%; */
+	/* text-align: center; */
     font-size: 42px;
     font-family: 'Pacifico', cursive;
     font-weight: 500;
