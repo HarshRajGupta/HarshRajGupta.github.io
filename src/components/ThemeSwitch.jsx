@@ -3,7 +3,7 @@ import Styled from 'styled-components';
 
 const Theme = Styled.div`
     margin: 0 auto;
-    color: ${({ isDark }) => (isDark ? '#15023a' : '#fff')};
+    color: inherit;
     transition: all 125ms ease-in-out;
     overflow: visible;
     cursor: pointer;
@@ -13,6 +13,12 @@ const Theme = Styled.div`
             filter: drop-shadow(3px 4px 7px #00c4cc);
             transform: scale(1);
         }
+		width: 1.6rem;
+		height: 1.6rem;
+		@media (max-width: 768px) {
+			width: 1.4rem;
+			height: 1.4rem;
+		}
     }
 `;
 
@@ -24,8 +30,6 @@ function ThemeSwitch({ isDark, setDark }) {
 		>
 			{isDark ? (
 				<svg
-					width="32"
-					height="32"
 					fill="currentColor"
 					viewBox="0 0 16 16"
 					className="bi bi-brightness-high-fill active"

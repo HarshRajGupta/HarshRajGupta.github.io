@@ -26,8 +26,11 @@ function HamBurger({ showMenu, setMenu, isDark, setDark }) {
 		},
 	];
 	return (
-		<Container show={showMenu}>
-			<Menu>
+		<Container
+			show={showMenu}
+			isDark={isDark}
+		>
+			<Menu isDark={isDark}>
 				<Theme
 					setDark={setDark}
 					isDark={isDark}
@@ -56,6 +59,7 @@ const Container = Styled.div`
     /* opacity: ${({ show }) => (show ? '1' : '0.69')}; */
     transform: ${(props) =>
 		props.show ? 'translateX(0%)' : 'translateX(100%)'};
+    opacity: ${(props) => (props.show ? '1' : '0.5')};
     transition: all 1024ms ease;
     @media (max-width: 540px) {
 		max-height: calc(100vh - 56px);
@@ -70,7 +74,6 @@ const Container = Styled.div`
     background-position: center center;
     background-size: cover;
     right: 0;
-    color: #fff;
     align-items: center;
     justify-content: space-around;
 `;
@@ -82,6 +85,7 @@ const Menu = Styled.ul`
     padding: 1rem;
     grid-template-columns: auto;
     position: relative;
+    color: ${({ isDark }) => (isDark ? '#15023a' : '#fff')};
 `;
 
 const Item = Styled.li`

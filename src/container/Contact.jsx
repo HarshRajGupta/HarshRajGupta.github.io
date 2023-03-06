@@ -110,10 +110,11 @@ function Contact({ isDark }) {
 					<Wrap
 						ref={form}
 						onSubmit={handleSubmit}
+						isDark={isDark}
 					>
 						{(status === 'send' && (
 							<>
-								<Email>
+								<Email isDark={isDark}>
 									<span></span>
 									<EmailInput
 										type="email"
@@ -125,7 +126,7 @@ function Contact({ isDark }) {
 									/>
 									<span></span>
 								</Email>
-								<Message>
+								<Message isDark={isDark}>
 									<span></span>
 									<MessageBg>
 										<MessageInput
@@ -133,6 +134,7 @@ function Contact({ isDark }) {
 											required
 											value={formData.message}
 											onChange={handleChange}
+											isDark={isDark}
 										/>
 									</MessageBg>
 									<span></span>
@@ -231,6 +233,7 @@ const Wrap = Styled.form`
     width: 100%;
     height: 75vh;
     align-items: center;
+	color: ${({ isDark }) => (isDark ? '#fff' : '#15023a')};
 `;
 
 const Title = Styled.h1`
@@ -254,7 +257,8 @@ const Title = Styled.h1`
 `;
 
 const Email = Styled.div`
-    background: rgba(255, 255, 255, 1);
+    background: ${({ isDark }) =>
+		isDark ? 'rgba(2, 12, 23, 0.69)' : 'rgba(255, 255, 255, 0.69)'};
     border-radius: 10px;
     height: max-content;
     overflow: hidden !important;
@@ -278,14 +282,14 @@ const EmailInput = Styled.input`
     background: transparent;
     outline: none;
     border: none;
-    color: #15023a;
     /* color: rgba(2, 12, 23,0.8); */
     cursor: pointer;
     height: max-content;
 `;
 
 const Message = Styled.div`
-    background: rgba(255, 255, 255, 1);
+    background: ${({ isDark }) =>
+		isDark ? 'rgba(2, 12, 23, 0.69)' : 'rgba(255, 255, 255, 0.69)'};
     border-radius: 6px;
     height: max-content;
     overflow: hidden !important;
@@ -297,11 +301,11 @@ const Message = Styled.div`
 `;
 
 const MessageInput = Styled.textarea`
-    background: rgba(255, 255, 255, 0.75);
+    background: ${({ isDark }) =>
+		isDark ? 'rgba(2, 12, 23, 0.84)' : 'rgba(255, 255, 255, 0.69)'};
     outline: none;
     border: none;
     margin: 12px 16px;
-    color: #15023a;
     font-family: "Zen Kaku Gothic Antique";
     font-size: 16px;
     font-weight: 600;
