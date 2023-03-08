@@ -207,9 +207,9 @@ const Container = Styled.div`
         grid-template-columns: 1fr;
     }
 	position: relative;
-    * {
+    /* * {
         overflow: visible;
-    }
+    } */
     background: ${({ isDark }) =>
 		isDark ? 'rgba(2, 12, 23,0.5)' : 'rgba(255, 255, 255, 0.69)'};
     /* background: rgba(2, 12, 23, 0.5); */
@@ -220,6 +220,9 @@ const Left = Styled.div`
     height: 100%;
     justify-content: center;
     align-items: center;
+	@media (max-width: 1023px) {
+        display: none;
+    }
 `;
 
 const Right = Styled.div`

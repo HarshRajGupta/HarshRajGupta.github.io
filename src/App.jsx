@@ -5,8 +5,6 @@ import AlertTemplate from 'react-alert-template-basic';
 import { Routes, Route } from 'react-router-dom';
 import Spinner from './components/Spinner';
 
-
-
 // const TopBar = lazy(() => import('./container/Topbar'));
 // const Intro = lazy(() => import('./container/Intro'));
 // const Portfolio = lazy(() => import('./container/Portfolio'));
@@ -18,7 +16,17 @@ import Spinner from './components/Spinner';
 // const LightBackground = lazy(() => import('./container/LightBackground'));
 // const DarkBackground = lazy(() => import('./container/DarkBackground'));
 
-import {Home, About, Portfolio, Projects, Contact, TopBar, LightBackground, DarkBackground} from './container'
+import {
+	Home,
+	About,
+	Portfolio,
+	Projects,
+	Contact,
+	TopBar,
+	LightBackground,
+	DarkBackground,
+	ChatBot,
+} from './container';
 
 function App() {
 	// const alert = useAlert().show;
@@ -80,22 +88,27 @@ function App() {
 							<Sections fullScreen={!menuOpen}>
 								<Routes>
 									<Route
+										exact
 										path="/home"
 										element={<Home isDark={isDark} />}
 									/>
 									<Route
+										exact
 										path="/about"
 										element={<About isDark={isDark} />}
 									/>
 									<Route
+										exact
 										path="/portfolio/*"
 										element={<Portfolio isDark={isDark} />}
 									/>
 									<Route
+										exact
 										path="/projects"
 										element={<Projects isDark={isDark} />}
 									/>
 									<Route
+										exact
 										path="/contact"
 										element={<Contact isDark={isDark} />}
 									/>
@@ -132,13 +145,11 @@ function App() {
 										}
 									/>
 								</Routes>
-								{/* <Pdf url={`/Resume.pdf`} /> */}
 							</Sections>
 						}
 					</Suspense>
-
 					{isDark ? <DarkBackground /> : <LightBackground />}
-					{/* <Background /> */}
+					<ChatBot />
 				</Container>
 			</AlertProvider>
 		</Suspense>

@@ -232,6 +232,7 @@ body {
 .map-container {
   position: relative;
   width: 50vw;
+  /* min-height: 25vh; */
   height: 75vh;
 }
 

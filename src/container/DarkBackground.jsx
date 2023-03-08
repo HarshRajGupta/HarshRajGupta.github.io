@@ -17,9 +17,6 @@ function Background() {
 			  10
 			? 10
 			: (window.innerWidth * window.innerHeight * 216) / (1920 * 1080);
-
-	// const __COUNT = 69;
-	console.log(__COUNT);
 	return (
 		<Particles
 			id="tsparticles"

@@ -27,10 +27,10 @@ function About({ isDark, all }) {
 							<p>
 								{Data.map((item) => {
 									return (
-										<>
+										<span key={item}>
 											{item}
 											<br />
-										</>
+										</span>
 									);
 								})}
 							</p>
