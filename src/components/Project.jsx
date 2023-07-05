@@ -1,12 +1,13 @@
 import { memo } from 'react';
 import styled from 'styled-components';
-import Zoom from 'react-reveal/Zoom';
+// import { Zoom } from 'react-awesome-reveal';
+import PropTypes from 'prop-types';
 
-function Project({ data, isDark }) {
+function Project({ data, isdark }) {
 	return (
 		<Container>
-			<Zoom>
-				<Item isDark={isDark}>
+			<div data-aos={`zoom-in`}>
+				<Item isdark={isdark}>
 					<Left>
 						<LeftContainer>
 							<IconContainer>
@@ -33,14 +34,24 @@ function Project({ data, isDark }) {
 						/>
 					</Right>
 				</Item>
-			</Zoom>
+			</div>
 		</Container>
 	);
 }
 
+Project.propTypes = {
+	data: PropTypes.object.isRequired,
+	isdark: PropTypes.bool,
+};
+
+Project.defaultProps = {
+	isdark: false,
+};
+
 const Container = styled.div`
-	width: 80vw;
+	width: max-content;
 	/* height: calc(100vh - 70px); */
+	height: 100%;
 	display: flex;
 	align-items: center;
 	margin: 0 auto;
@@ -53,8 +64,9 @@ const Container = styled.div`
 const Item = styled.div`
 	width: 764px;
 	height: 360px;
-	background-color: ${({ isDark }) => (isDark ? 'rgba(255, 255, 255, 0.9)' : 'rgba(0, 0, 0, 0.7)')};
-	color : ${({ isDark }) => (!isDark ? '#fff' : '#000')};
+	background-color: ${({ isdark }) =>
+		isdark ? 'rgba(255, 255, 255, 0.9)' : 'rgba(0, 0, 0, 0.7)'};
+	color: ${({ isdark }) => (!isdark ? '#fff' : '#000')};
 	border-radius: 20px;
 	display: flex;
 	align-items: center;

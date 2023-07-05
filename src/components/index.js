@@ -1,5 +1,6 @@
 export { default as DragDownButton } from './DragDownButton'
 export { default as Spinner } from './Spinner'
+export { default as ShortSpinner } from './ShortSpinner'
 export { default as HamBurger } from './Hamburger'
 export { default as Map } from './Map'
 export { default as Project } from './Project'

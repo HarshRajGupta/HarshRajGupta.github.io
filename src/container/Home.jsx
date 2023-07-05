@@ -1,71 +1,75 @@
-import { memo } from 'react';
 import Styled from 'styled-components';
 import Typewriter from 'typewriter-effect';
-import { DragDownButton } from '../components';
-import Zoom from 'react-reveal/Zoom';
-import Fade from 'react-reveal/Fade';
+import DragDownButton from '@components/DragDownButton';
+import PropTypes from 'prop-types';
 
-function Intro({ isDark, all }) {
+function Home({ isdark }) {
 	return (
 		<Container id="Home">
 			<Left>
-				<ImageContainer>
-					<Zoom ssrFadeout>
+				<ImageContainer data-aos="zoom-in-right">
+					<div data-aos={`zoom-in`}>
 						<Image src="https://user-images.githubusercontent.com/85221003/156927272-0c54db85-436c-4e95-b0b9-9959978a1f5d.gif" />
-					</Zoom>
+					</div>
 				</ImageContainer>
 			</Left>
 			<Right>
-				<Fade
-					right
-					big
+				<Wrap
+					isdark={isdark}
+					data-aos="zoom-in-left"
 				>
-					<Wrap isDark={isDark}>
-						<LineOne isDark={isDark}>Hi There, I'm</LineOne>
-						<LineTwo isDark={isDark}>Harsh Raj Gupta</LineTwo>
-						<LineThree isDark={isDark}>
-							<span>
-								<Typewriter
-									options={{
-										strings: [
-											'Competitive Programmer',
-											'MERN Stack Developer',
-											'SIH 2022 Finalist',
-											'ICPC 21-22 Regionalist',
-											'Speacialist @CF',
-											'Codechef 4*',
-										],
-										autoStart: true,
-										loop: true,
-										pauseFor: 2000,
-										cursorClassName: 'blinkingCursor',
-									}}
-								/>
-							</span>
-						</LineThree>
-					</Wrap>
-				</Fade>
+					<LineOne isdark={isdark}>{"Hi There, I'm"}</LineOne>
+					<LineTwo isdark={isdark}>Harsh Raj Gupta</LineTwo>
+					<LineThree isdark={isdark}>
+						<span>
+							<Typewriter
+								options={{
+									strings: [
+										'Competitive Programmer',
+										'MERN Stack Developer',
+										'SIH 2022 Finalist',
+										'ICPC 21-22 Regionalist',
+										'Speacialist @CF',
+										'Codechef 4*',
+									],
+									autoStart: true,
+									loop: true,
+									pauseFor: 2000,
+									cursorClassName: 'blinkingCursor',
+								}}
+							/>
+						</span>
+					</LineThree>
+				</Wrap>
 			</Right>
-			{all && (
-				<DragDownButton
-					link="#About-me"
-					isDark={isDark}
-				/>
-			)}
+			<DragDownButton
+				link="#About-me"
+				isdark={isdark}
+			/>
 		</Container>
 	);
 }
+
+Home.defaultProps = {
+	isdark: true,
+};
+
+Home.propTypes = {
+	isdark: PropTypes.bool,
+};
+
 const Container = Styled.main`
     width: 100%;
     height: calc(100vh - 70px);
+    display: grid;
     @media (max-width: 540px) {
 		height: calc(100vh - 56px);
     }
-    grid-template-columns: auto auto;
+    grid-template-columns: 3fr 2fr;
     position: relative;
     justify-content: center;
     @media (max-width: 984px) {
-        grid-template-columns: auto
+        grid-template-columns: 1fr;
     }
     overflow: hidden;
     /* background: rgba(255, 255, 255, 0.1); */
@@ -74,7 +78,7 @@ const Container = Styled.main`
 `;
 
 const Left = Styled.div`
-    display: flex;
+    display: grid;
     overflow: hidden;
     width: 100%;
     @media (max-width: 1280px) and (min-width: 984px) {
@@ -83,7 +87,9 @@ const Left = Styled.div`
 `;
 
 const ImageContainer = Styled.div`
+    display: flex;
     height: 120vh;
+    width: 100%;
     background-color: #82c5f8;
     background-size: contain;
     border-radius: 50%;
@@ -108,7 +114,7 @@ const Image = Styled.img`
     width: 100%;
     object-fit: cover;
     @media (max-width: 1280px) {
-        width: 100vw;
+        width: 100%;
     }
     transform: scaleX(-1);
     @media (max-width: 1640px) {
@@ -126,6 +132,7 @@ const Image = Styled.img`
 `;
 
 const Right = Styled.div`
+    display: flex;
     padding: 50px;
     * {
         max-width: 100%;
@@ -143,9 +150,9 @@ const Right = Styled.div`
 
 const Wrap = Styled.ul`
     height: max-content;
-    /* color: ${({ isDark }) =>
-		isDark ? '#00c4cc' : 'rgba(2, 12, 23,0.9)'}; */
-    color: ${({ isDark }) => (isDark ? '#d1f4f5' : '#15023a')};
+    /* color: ${({ isdark }) =>
+		isdark ? '#00c4cc' : 'rgba(2, 12, 23,0.9)'}; */
+    color: ${({ isdark }) => (isdark ? '#d1f4f5' : '#15023a')};
     user-select: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -157,8 +164,8 @@ const Wrap = Styled.ul`
     }
     cursor: none;
     * {
-        /* text-shadow: 3px 4px 7px ${({ isDark }) =>
-			isDark ? 'rgba(255, 255, 255, 0.3)' : 'rgba(81,67,21,0.8)'}; */
+        /* text-shadow: 3px 4px 7px ${({ isdark }) =>
+			isdark ? 'rgba(255, 255, 255, 0.3)' : 'rgba(81,67,21,0.8)'}; */
         /* font-weight: bold; */
         overflow: visible;
     }
@@ -166,8 +173,8 @@ const Wrap = Styled.ul`
 
 const LineOne = Styled.h1`
     font-family: Montserrat;
-    font-weight: 600;
-    font-size: 24px;
+    font-weight: 500;
+    font-size: 20px;
     @media (max-width: 1280px) {
         margin: 0 auto;
     }
@@ -187,8 +194,8 @@ const LineTwo = Styled.h3`
     margin: 10px 0;
     cursor: none;
     background: -webkit-linear-gradient(#5cb6f9, #00c4cc, #185a9d);
-    text-shadow: 3px 4px 7px ${({ isDark }) =>
-		isDark ? 'rgba(255, 255, 255, 0.2)' : 'none'};
+    text-shadow: 3px 4px 7px ${({ isdark }) =>
+		isdark ? 'rgba(255, 255, 255, 0.2)' : 'none'};
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
     width: 100%;
@@ -205,7 +212,7 @@ const LineTwo = Styled.h3`
 
 const LineThree = Styled.h2`
     width: 360px;
-    font-size: 32px;
+    font-size: 30px;
     font-family: "Zen Kaku Gothic Antique";
     font-weight: bold;
     @media (max-width: 1280px) {
@@ -223,7 +230,7 @@ const LineThree = Styled.h2`
         display: inline;
     }
     span {
-        /* color: ${({ isDark }) => (isDark ? 'inherit' : 'crimson')}; */
+        /* color: ${({ isdark }) => (isdark ? 'inherit' : 'crimson')}; */
         &.blinkingCursor {
             @keyframes typingCursor {
                 0% { opacity: 1 }
@@ -239,4 +246,4 @@ const LineThree = Styled.h2`
     }
 `;
 
-export default memo(Intro);
+export default Home;

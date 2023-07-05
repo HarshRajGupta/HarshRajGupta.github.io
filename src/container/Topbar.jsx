@@ -1,10 +1,10 @@
-import { memo } from 'react';
 import Styled from 'styled-components';
 import CallIcon from '@mui/icons-material/Call';
 import EmailIcon from '@mui/icons-material/Email';
 import DownloadIcon from '@mui/icons-material/Download';
-import { HamBurger, Theme } from '../components';
-import { useAlert } from 'react-alert';
+import Theme from '@components/ThemeSwitch';
+import HamBurger from '@components/HamBurger';
+import PropTypes from 'prop-types';
 
 const Data = {
 	email: 'HarshR4jGupta@gmail.com',
@@ -12,25 +12,23 @@ const Data = {
 	resume: 'https://drive.google.com/file/d/1g0lGlqeTgYr0o5zz8gMmHQZ7w8mkkwMa',
 };
 
-function TopBar({ menuOpen, setMenuOpen, isDark, setDark }) {
-	const alert = useAlert().show;
+function TopBar({ menuOpen, setMenuOpen, isdark, setDark }) {
 	return (
 		<Container
 			className={!menuOpen && 'active'}
-			isDark={isDark}
+			isdark={isdark}
 		>
 			<HamBurger
-				showMenu={menuOpen}
-				setMenu={setMenuOpen}
-				isDark={isDark}
+				show={menuOpen}
+				isdark={isdark}
 				setDark={setDark}
 			/>
 			<Wrap>
 				<LeftBar>
-					<MyName isDark={isDark}>harsh.</MyName>
+					<MyName isdark={isdark}>harsh.</MyName>
 					<Theme
 						setDark={setDark}
-						isDark={isDark}
+						isdark={isdark}
 					/>
 					<Item>
 						<CallIcon
@@ -88,7 +86,7 @@ function TopBar({ menuOpen, setMenuOpen, isDark, setDark }) {
 					<Hamburger
 						onClick={() => setMenuOpen(!menuOpen)}
 						className={menuOpen && 'active'}
-						isDark={isDark}
+						isdark={isdark}
 					>
 						<span></span>
 						<span></span>
@@ -100,7 +98,22 @@ function TopBar({ menuOpen, setMenuOpen, isDark, setDark }) {
 	);
 }
 
+TopBar.propTypes = {
+	menuOpen: PropTypes.bool,
+	setMenuOpen: PropTypes.func,
+	isdark: PropTypes.bool,
+	setDark: PropTypes.func,
+};
+
+TopBar.defaultProps = {
+	menuOpen: false,
+	setMenuOpen: () => {},
+	isdark: false,
+	setDark: () => {},
+};
+
 const Wrap = Styled.div`
+	display: grid;
     width: 100%;
     padding: 10px 30px;
     align-items: center;
@@ -109,6 +122,7 @@ const Wrap = Styled.div`
 `;
 
 const LeftBar = Styled.div`
+	display: grid;
     grid-template-columns: auto auto auto auto auto;
     align-items: center;
     grid-gap: 70px;
@@ -122,6 +136,7 @@ const MyName = Styled.h1`
     font-size: 42px;
     font-weight: 600;
     text-decoration: none;
+	margin: 0 auto;
     font-family: Poppins;
     @media (max-width: 540px) {
         font-size: 24px;
@@ -133,10 +148,11 @@ const MyName = Styled.h1`
         font-size: 18px;
     }
 	cursor: pointer;
-	/* color: ${({ isDark }) => (isDark ? '#00c4cc' : 'rgba(2, 12, 23, 0.9)')}; */
+	/* color: ${({ isdark }) => (isdark ? '#00c4cc' : 'rgba(2, 12, 23, 0.9)')}; */
 `;
 
 const Item = Styled.div`
+	display: grid;
     grid-template-columns: auto auto;
     grid-gap: 4px;
     align-items: center;
@@ -147,14 +163,13 @@ const Item = Styled.div`
 	.icon {
 		width: 24px;
 		@media (max-width: 414px) {
-        	width: 20px;
-    	}
-    	@media (max-width: 300px) {
-        	width: 16px;
-    	}
+			width: 20px;
+		}
+		@media (max-width: 300px) {
+			width: 16px;
+		}
 	}
 	/* transition: all 250ms ease-in-out !important; */
-	transition-delay: 0ms !important;
 	&:hover {
 		color: #00c4cc;
 	}
@@ -177,6 +192,7 @@ const ItemText = Styled.div`
 const RightBar = Styled.div``;
 
 const Hamburger = Styled.div`
+	display: grid;
     width: 24px;
 	@media (max-width: 414px) {
 		width: 20px;
@@ -195,10 +211,10 @@ const Hamburger = Styled.div`
 		@media (max-width: 414px) {
 			height: 2px;
 		}
-        background-color: ${({ isDark }) => (isDark ? '#fff' : '#15023a')};
+        background-color: ${({ isdark }) => (isdark ? '#fff' : '#15023a')};
 		/* background-color: #00c4cc; */
         transform-origin: right;
-        transition: all 1s ease;
+        transition: transform 1s ease;
         border-radius: 256px;
     }
     &.active {
@@ -227,14 +243,13 @@ const Container = Styled.div`
     top: 0;
     z-index: 2;
     transform: width 0s, height 0s;
-    transition: all 0.25s ease-in-out;
-	background: ${({ isDark }) =>
-		isDark ? 'rgba(2, 12, 23,0.5)' : 'rgba(255, 255, 255, 0.1)'};
-	/* color: ${({ isDark }) => (isDark ? '#5cb6f9' : '#15023a')}; */
-	color: ${({ isDark }) => (isDark ? '#fff' : '#15023a')};
+	background: ${({ isdark }) =>
+		isdark ? 'rgba(2, 12, 23,0.5)' : 'rgba(255, 255, 255, 0.1)'};
+	/* color: ${({ isdark }) => (isdark ? '#5cb6f9' : '#15023a')}; */
+	color: ${({ isdark }) => (isdark ? '#fff' : '#15023a')};
     @media (max-width: 540px) {
         height: 56px;
     }
 `;
 
-export default memo(TopBar);
+export default TopBar;

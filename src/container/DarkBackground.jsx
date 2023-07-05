@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
 
@@ -14,9 +13,9 @@ function Background() {
 		(window.innerWidth * window.innerHeight * 216) / (1920 * 1080) > 69
 			? 69
 			: (window.innerWidth * window.innerHeight * 216) / (1920 * 1080) <
-			  10
-			? 10
-			: (window.innerWidth * window.innerHeight * 216) / (1920 * 1080);
+				10
+				? 10
+				: (window.innerWidth * window.innerHeight * 216) / (1920 * 1080);
 	return (
 		<Particles
 			id="tsparticles"
@@ -419,4 +418,4 @@ function Background() {
 	);
 }
 
-export default memo(Background);
+export default Background;

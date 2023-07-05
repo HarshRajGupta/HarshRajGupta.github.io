@@ -1,59 +1,65 @@
-import { memo } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Autoplay, Keyboard, Pagination, Navigation } from 'swiper';
-import { ProjectPosts } from '../data';
-import { Project, DragDownButton } from '../components';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { ProjectPosts } from '@assets/data';
+import { Project, DragDownButton } from '@components';
 import Styled from 'styled-components';
+import PropTypes from 'prop-types';
+
 import 'swiper/css';
-import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import '../style.css';
-// import DragDownButton from '../components/DragDownButton';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
 
-SwiperCore.use([Autoplay, Keyboard]);
-
-function Projects({ isDark, all }) {
+function Projects({ isdark }) {
 	return (
 		<Container
 			id={'Projects'}
-			isDark={isDark}
+			isdark={isdark}
 		>
 			<Swiper
-				pagination={{
-					type: 'progressbar',
-				}}
-				keyboard={{
-					enabled: true,
-				}}
+				slidesPerView={1}
+				centeredSlides={true}
 				autoplay={{
-					delay: 5000,
+					delay: 1000,
+					disableOnInteraction: true,
 				}}
 				loop={true}
+				pagination={{
+					clickable: true,
+				}}
 				navigation={true}
-				modules={[Pagination, Navigation]}
+				modules={[Autoplay, Pagination, Navigation]}
 				className="mySwiper"
 			>
 				{ProjectPosts.map((project) => (
 					<SwiperSlide key={project.id}>
 						<Project
 							data={project}
-							isDark={isDark}
+							isdark={isdark}
 						/>
+						{/* <div>{project.id}</div> */}
 					</SwiperSlide>
 				))}
 			</Swiper>
-			{all && (
-				<DragDownButton
-					link={'#Contact-me'}
-					isDark={isDark}
-				/>
-			)}
+			<DragDownButton
+				link={'#Contact-me'}
+				isdark={isdark}
+			/>
 		</Container>
 	);
 }
 
+Projects.propTypes = {
+	isdark: PropTypes.bool,
+};
+
+Projects.defaultProps = {
+	isdark: true,
+};
+
 const Container = Styled.div`
 	color: #15023a;
+	display: grid;
     * {
         overflow: visible;
         max-width: 80vw;
@@ -61,35 +67,21 @@ const Container = Styled.div`
 		@media (max-width: 540px) {
 			max-width: 100vw;
 			max-height: calc(100vh - 56px);
-    	}
+		}
     }
 	z-index: 1;
-  	width:100%;
-  	height: calc(100vh - 71px);
-	/* background: url('https://user-images.githubusercontent.com/85221003/190643911-5296bdf7-b088-41f7-beff-c3f946a974d4.jpg'); */
+	width: 100%;
+	height: calc(100vh - 71px);
+	background: url('https://user-images.githubusercontent.com/85221003/190643911-5296bdf7-b088-41f7-beff-c3f946a974d4.jpg');
 	background-size: contain;
 	@media (max-width: 540px) {
 		height: calc(100vh - 56px);
 		background-size: cover;
 		background-repeat: no-repeat;
 		* {
-			max-width: 100vw;
+			max-width: 100%;
 		}
     }
-    position: relative;
-    overflow: hidden;
-	.swiper-button-next::after, .swiper-button-prev::after {
-		opacity: 0.9;
-		color: ${({ isDark }) => (isDark ? '#fff' : '#15023a')};
-	}
-	.swiper-pagination-progressbar {
-		background: none;
-	}
-	.swiper-pagination-progressbar-fill {
-		width: 100vw;
-		margin: 0;
-		background: ${({ isDark }) => (isDark ? '#fff' : '#15023a')} !important;
-	}
 `;
 
-export default memo(Projects);
+export default Projects;

@@ -22,13 +22,13 @@ const Theme = Styled.div`
     }
 `;
 
-function ThemeSwitch({ isDark, setDark }) {
+function ThemeSwitch({ isdark, setDark }) {
 	return (
 		<Theme
-			onClick={() => setDark(!isDark)}
-			isDark={isDark}
+			onClick={() => setDark(!isdark)}
+			isdark={isdark}
 		>
-			{isDark ? (
+			{isdark ? (
 				<svg
 					fill="currentColor"
 					viewBox="0 0 16 16"

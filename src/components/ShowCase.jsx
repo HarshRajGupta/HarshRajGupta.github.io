@@ -1,48 +1,61 @@
-import { Suspense, memo, lazy } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import Styled from 'styled-components';
+import AOS from 'aos';
 import {
 	FeaturedPosts,
 	AchievementPosts,
 	CertificatePosts,
 	SkillsPosts,
 	LanguagesPosts,
-} from '../data';
-import { Fade } from 'react-reveal';
+} from '@assets/data';
+import { Spinner, ShortSpinner } from '@components';
+import PropTypes from 'prop-types';
 
-const Spinner = lazy(() => import('./Spinner'));
-const ShortSpinner = lazy(() => import('./ShortSpinner'));
-// import { Routes, Route, Link } from 'react-router-dom';
-
-function ShowCase({ selector, isDark }) {
-	var Data = [];
-	switch (selector) {
-		case 'achievements':
-			Data = AchievementPosts;
-			break;
-		case 'certifications':
-			Data = CertificatePosts;
-			break;
-		case 'skills':
-			Data = SkillsPosts;
-			break;
-		case 'languages':
-			Data = LanguagesPosts;
-			break;
-		default:
-			Data = FeaturedPosts;
-			break;
-	}
+function ShowCase({ selector, isdark }) {
+	const [Data, setData] = useState(FeaturedPosts);
+	useEffect(() => {
+		switch (selector) {
+			case 'achievements':
+				setData(AchievementPosts);
+				break;
+			case 'certifications':
+				setData(CertificatePosts);
+				break;
+			case 'skills':
+				setData(SkillsPosts);
+				break;
+			case 'languages':
+				setData(LanguagesPosts);
+				break;
+			default:
+				setData(FeaturedPosts);
+		}
+		AOS.init({
+			duration: 750,
+		});
+		return () => {
+			AOS.refresh();
+		};
+	}, [selector]);
 	return (
 		<Suspense fallback={<Spinner text={`Loading`} />}>
-			<ItemContainer isDark={isDark}>
-				{Data.map((item) => (
+			<ItemContainer isdark={isdark}>
+				{Data.map((item, index) => (
 					<Suspense
-						key={item.id}
+						key={index}
 						fallback={<Spinner />}
 					>
-						<Fade>
+						<div
+							data-aos={
+								index % 3 === 2
+									? 'zoom-in-left'
+									: index % 3
+									? 'zoom-in-up'
+									: 'zoom-in-right'
+							}
+						>
 							<Item
-								bgColor={
+								bgcolor={
 									'#' +
 									Math.floor(
 										Math.random() * 16777215,
@@ -58,11 +71,11 @@ function ShowCase({ selector, isDark }) {
 								<Image
 									src={item.image}
 									alt={item.title}
-									isDark={isDark}
-								></Image>
-								<h1>{item.title}</h1>
+									isdark={isdark}
+									loading="lazy"
+								/>
 							</Item>
-						</Fade>
+						</div>
 					</Suspense>
 				))}
 			</ItemContainer>
@@ -70,13 +83,19 @@ function ShowCase({ selector, isDark }) {
 	);
 }
 
+ShowCase.propTypes = {
+	selector: PropTypes.string,
+	isdark: PropTypes.bool,
+};
+
 const ItemContainer = Styled.div`
+    display: grid;
     height: inherit;
     align-items: center;
     margin: 0 auto;
     grid-template-columns: auto auto auto;
     grid-gap: 16px 128px;
-    height: max-content;
+    height: fit-content;
     justify-content: center;
     width: 100%;
     @media (max-width: 1280px) {
@@ -84,24 +103,22 @@ const ItemContainer = Styled.div`
         grid-template-columns: auto auto;
     }
     /* background: rgba(255, 255, 255, 0.1); */
-    background: ${({ isDark }) =>
-		isDark ? 'rgba(2, 12, 23,0.1)' : 'rgba(255, 255, 255, 0.1)'};
-    /* background: rgba(2, 12, 23,0.1); */
-    overflow: visible;
-    * {
-        overflow: visible;
-    }
+    background: ${({ isdark }) =>
+		isdark ? 'rgba(2, 12, 23,0.1)' : 'rgba(255, 255, 255, 0.1)'};
+    overflow: scroll;
 `;
 
 const Item = Styled.div`
+    display: grid;
     width: 200px;
     height: 120px;
-    margin: 0.5rem auto;
+    margin: auto;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    background: ${(props) => props.bgColor};
+    position: relative;
+    background: ${(props) => props.bgcolor};
     h1 {
-        width: 100%;
+        width: fit-content;
         font-size: 13px;
         text-align: center;
         font-family: 'Pacifico', cursive;
@@ -141,11 +158,13 @@ const Image = Styled.img`
     width: 100%;
     height: 100%;
     object-fit: contain;
-    background: ${({ isDark }) =>
-		isDark ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.7)'};
+    z-index: 1;
+    background: ${({ isdark }) =>
+		isdark ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.7)'};
 `;
 
 const Loading = Styled.div`
+    display: grid;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -153,4 +172,4 @@ const Loading = Styled.div`
     z-index: 0;
 `;
 
-export default memo(ShowCase);
+export default ShowCase;

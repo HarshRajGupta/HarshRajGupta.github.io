@@ -4,8 +4,8 @@ function ChatBot() {
 	return (
 		<>
 			<TawkMessengerReact
-				propertyId={process.env.REACT_APP_TAWK_PROPERTY_ID}
-				widgetId={process.env.REACT_APP_TAWK_WIDGET_ID}
+				propertyId={import.meta.env.REACT_APP_TAWK_PROPERTY_ID}
+				widgetId={import.meta.env.REACT_APP_TAWK_WIDGET_ID}
 			/>
 		</>
 	);

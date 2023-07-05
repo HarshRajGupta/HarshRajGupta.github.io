@@ -1,8 +1,8 @@
 import Styled from 'styled-components';
-import { memo } from 'react';
-import { Link } from 'react-router-dom';
-import { Theme } from './';
-function HamBurger({ showMenu, setMenu, isDark, setDark }) {
+import { Theme } from '@components';
+import PropTypes from 'prop-types';
+
+function HamBurger({ show, isdark, setDark }) {
 	const menuList = [
 		{
 			id: 'home',
@@ -27,36 +27,46 @@ function HamBurger({ showMenu, setMenu, isDark, setDark }) {
 	];
 	return (
 		<Container
-			show={showMenu}
-			isDark={isDark}
+			show={show}
+			isdark={isdark}
 		>
-			<Menu isDark={isDark}>
+			<Menu isdark={isdark}>
 				<Theme
 					setDark={setDark}
-					isDark={isDark}
+					isdark={isdark}
 				/>
-				{showMenu &&
-					menuList.map((item) => (
-						<Item>
-							<Link
-								className="link"
-								to={item.id}
-							>
-								{item.title}
-							</Link>
-						</Item>
-					))}
+				{menuList.map((item, index) => (
+					<Item key={index}>
+						<a
+							className="link"
+							href={`#${item.id}`}
+						>
+							{item.title}
+						</a>
+					</Item>
+				))}
 			</Menu>
 		</Container>
 	);
 }
 
+HamBurger.propTypes = {
+    show: PropTypes.bool,
+	isdark: PropTypes.bool,
+	setDark: PropTypes.func,
+};
+
+HamBurger.defaultProps = {
+    show: false,
+    isdark: false,
+}
+
 const Container = Styled.div`
+    display: grid;
     width: 204px;
     height: calc(100vh - 70px);
     top: 70px;
     position: fixed;
-    /* opacity: ${({ show }) => (show ? '1' : '0.69')}; */
     transform: ${(props) =>
 		props.show ? 'translateX(0%)' : 'translateX(100%)'};
     opacity: ${(props) => (props.show ? '1' : '0.5')};
@@ -65,7 +75,7 @@ const Container = Styled.div`
 		max-height: calc(100vh - 56px);
         height: max-content;
         top: 56px;
-        width: 100vw;
+        width: 100%;
         transform: ${(props) =>
 			props.show ? 'translateX(0%)' : 'translateY(-100vh)'};
     }
@@ -79,17 +89,19 @@ const Container = Styled.div`
 `;
 
 const Menu = Styled.ul`
+    display: grid;
     width: 100%;
     grid-gap: 4vh;
     margin-bottom: 2vh;
     padding: 1rem;
     grid-template-columns: auto;
     position: relative;
-    color: ${({ isDark }) => (isDark ? '#15023a' : '#fff')};
+    color: ${({ isdark }) => (isdark ? '#15023a' : '#fff')};
 `;
 
 const Item = Styled.li`
-    width: max-content;
+    /* width: max-content; */
+    display: grid;
     margin: 0 auto;
     .link {
         margin: 0 auto;
@@ -116,11 +128,11 @@ const Item = Styled.li`
         transform-origin: bottom right;
         transition: transform 512ms ease-out;
         border-radius: 32px;
-        background: linear-gradient(#5cb6f9, #00c4cc, #5ae2e2);
+        /* background: linear-gradient(#5cb6f9, #00c4cc, #5ae2e2); */
     }
     &:hover {
-        color: #5ae2e2;
-        font-weight: Black;
+        /* color: #5ae2e2; */
+        /* font-weight: 600; */
         opacity: 0.75;
         transition-delay: 0s !important;
         transition-duration: 0s !important;
@@ -131,4 +143,4 @@ const Item = Styled.li`
     }
 `;
 
-export default memo(HamBurger);
+export default HamBurger;

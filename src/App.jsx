@@ -1,22 +1,21 @@
-import { Suspense, memo, useState, useEffect } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { transitions, positions, Provider as AlertProvider } from 'react-alert';
-import AlertTemplate from 'react-alert-template-basic';
-import { Routes, Route } from 'react-router-dom';
-import Spinner from './components/Spinner';
+import 'aos/dist/aos.css';
+import AOS from 'aos';
+import { Spinner } from '@components';
 
-// const TopBar = lazy(() => import('./container/Topbar'));
-// const Intro = lazy(() => import('./container/Intro'));
-// const Portfolio = lazy(() => import('./container/Portfolio'));
-// const Projects = lazy(() => import('./container/Projects'));
-// const About = lazy(() => import('./container/About'));
-// const Contact = lazy(() => import('./container/Contact'));
-// const Background = lazy(() => import('./container/BG'));
-// const Background = lazy(() => import('./components/Background'));
-// const LightBackground = lazy(() => import('./container/LightBackground'));
-// const DarkBackground = lazy(() => import('./container/DarkBackground'));
+// import {
+// 	Home,
+// 	About,
+// 	Portfolio,
+// 	Projects,
+// 	Contact,
+// 	TopBar,
+// 	LightBackground,
+// 	DarkBackground,
+// } from '@container';
 
-import {
+const {
 	Home,
 	About,
 	Portfolio,
@@ -25,19 +24,32 @@ import {
 	TopBar,
 	LightBackground,
 	DarkBackground,
-	ChatBot,
-} from './container';
+} = await import('@container');
 
 function App() {
-	// const alert = useAlert().show;
-	let theme = true;
-	if (localStorage.getItem('&7aQ@sb95ZF1cP#4&m3K') === 'false') {
-		theme = false;
-	}
-	// alert(`Welcome to my portfolio website. This website is still under development.`);
-	const [isDark, setDark] = useState(theme);
+	const [isdark, setDark] = useState(true);
 	useEffect(() => {
-		if (isDark) {
+		if (localStorage.getItem('&7aQ@sb95ZF1cP#4&m3K') === 'false') {
+			setDark(false);
+		}
+		AOS.init({
+			duration: 1000,
+		});
+		AOS.refresh();
+	}, []);
+	useEffect(() => {
+		console.log('reload');
+		const aosRefresh = () =>
+			setInterval(() => {
+				AOS.refresh();
+			}, 100);
+		aosRefresh();
+		return () => {
+			clearInterval(aosRefresh);
+		};
+	}, []);
+	useEffect(() => {
+		if (isdark) {
 			document.getElementsByTagName('html')[0].style.backgroundColor =
 				'rgba(2, 12, 23, 1)';
 			document.getElementById('root').style.backgroundColor =
@@ -60,98 +72,31 @@ function App() {
 			document.getElementsByClassName('spinner')[0].style.animationName =
 				'text-color2';
 		}
-		localStorage.setItem('&7aQ@sb95ZF1cP#4&m3K', isDark);
-	}, [isDark]);
-	const options = {
-		position: positions.TOP_CENTER,
-		timeout: 2000,
-		offset: '16px',
-		type: 'success',
-		transition: transitions.SCALE,
-	};
+		localStorage.setItem('&7aQ@sb95ZF1cP#4&m3K', isdark);
+	}, [isdark]);
 	const [menuOpen, setMenuOpen] = useState(false);
 	return (
-		<Suspense fallback={<Spinner text={`Loading`} />}>
-			<AlertProvider
-				template={AlertTemplate}
-				{...options}
-			>
+		<Suspense fallback={<Spinner test={'welcome'} />}>
+			<div>
 				<Container>
 					<TopBar
 						menuOpen={menuOpen}
 						setMenuOpen={setMenuOpen}
-						isDark={isDark}
+						isdark={isdark}
 						setDark={setDark}
 					/>
-					<Suspense fallback={<Spinner text={`Loading`} />}>
-						{
-							<Sections fullScreen={!menuOpen}>
-								<Routes>
-									<Route
-										exact
-										path="/home"
-										element={<Home isDark={isDark} />}
-									/>
-									<Route
-										exact
-										path="/about"
-										element={<About isDark={isDark} />}
-									/>
-									<Route
-										exact
-										path="/portfolio/*"
-										element={<Portfolio isDark={isDark} />}
-									/>
-									<Route
-										exact
-										path="/projects"
-										element={<Projects isDark={isDark} />}
-									/>
-									<Route
-										exact
-										path="/contact"
-										element={<Contact isDark={isDark} />}
-									/>
-									<Route
-										path="/*"
-										element={
-											<>
-												<Home
-													all
-													isDark={isDark}
-												/>
-												<About
-													all
-													isDark={isDark}
-												/>
-												<Suspense
-													fallback={
-														<Spinner
-															text={`Loading`}
-														/>
-													}
-												>
-													<Portfolio
-														all
-														isDark={isDark}
-													/>
-												</Suspense>
-												<Projects
-													all
-													isDark={isDark}
-												/>
-												<Contact isDark={isDark} />
-											</>
-										}
-									/>
-								</Routes>
-							</Sections>
-						}
-					</Suspense>
-					{isDark ? <DarkBackground /> : <LightBackground />}
-					<ChatBot />
+					<Sections fullscreen={!menuOpen}>
+						<Home isdark={isdark} />
+						<About isdark={isdark} />
+						<Portfolio isdark={isdark} />
+						<Projects isdark={isdark} />
+						<Contact isdark={isdark} />
+						{/* <FalseComponent /> */}
+					</Sections>
+					{isdark ? <DarkBackground /> : <LightBackground />}
+					{/* <ChatBot /> */}
 				</Container>
-			</AlertProvider>
+			</div>
 		</Suspense>
 	);
 }
@@ -162,17 +107,19 @@ const Container = styled.div`
 `;
 
 const Sections = styled.main`
-	/* width: ${(props) =>
-		props.fullScreen ? '100vw' : 'calc(100vw - 204px)'}; */
-	width: 100vw;
-	transition: all 750ms ease;
+	max-width: 100vw;
+	overflow-x: hidden;
+	width: ${(props) => (props.fullscreen ? '100vw' : 'calc(100vw - 204px)')};
+	transition: width 0.5s ease-in-out;
 	height: calc(100vh - 70px);
 	position: relative;
 	top: 70px;
 	@media (min-width: 541px) {
 		width: ${(props) =>
-			props.fullScreen ? '100vw' : 'calc(100vw - 204px)'};
+			props.fullscreen ? '100vw' : 'calc(100vw - 204px)'};
 	}
+	display: grid;
+	/* grid-template-columns: repeat(1, 1fr); */
 	overflow-y: scroll;
 	scrollbar-width: none;
 	&::-webkit-scrollbar {
@@ -185,4 +132,4 @@ const Sections = styled.main`
 	}
 `;
 
-export default memo(App);
+export default App;

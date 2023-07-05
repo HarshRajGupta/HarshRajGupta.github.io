@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import Spinner from './Spinner';
+import { Spinner } from '@components';
 
 function Map() {
 	return (

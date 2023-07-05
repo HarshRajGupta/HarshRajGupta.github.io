@@ -1,12 +1,9 @@
 import Styled from 'styled-components';
-import { Suspense, memo } from 'react';
-import { Routes, Route, NavLink } from 'react-router-dom';
-// import ShowCase from '../components/ShowCase';
-// import DragDownButton from '../components/DragDownButton';
-import { ShowCase, DragDownButton, Spinner } from '../components';
-// const ShowCase = lazy(() => import('../components/ShowCase'));
-// const DragDownButton = lazy(() => import('../components/DragDownButton'));
-// const Spinner = lazy(() => import('../components/Spinner'));
+import { Suspense, useState, lazy } from 'react';
+import { DragDownButton, Spinner } from '@components';
+import PropTypes from 'prop-types';
+
+const ShowCase = lazy(() => import('@components/ShowCase'));
 
 const list = [
 	{
@@ -35,58 +32,56 @@ const list = [
 	},
 ];
 
-function Portfolio({ isDark, all }) {
+function Portfolio({ isdark }) {
+	const [active, setActive] = useState(0);
 	return (
 		<Suspense fallback={<Spinner text={`Loading`} />}>
 			<Container id={'Portfolio'}>
-				<PageHeading isDark={isDark}>Portfolio</PageHeading>
-				<Tabs isDark={isDark}>
-					{list.map((item) => (
-						<NavLink
-							to={`${item.id}`}
-							activeclassname="active"
+				<PageHeading
+					isdark={isdark}
+					data-aos={'fade-left'}
+				>
+					Portfolio
+				</PageHeading>
+				<Tabs
+					isdark={isdark}
+					data-aos={'fade-right'}
+				>
+					{list.map((item, index) => (
+						<div
 							key={item.id}
+							className={active === index ? 'active' : ''}
+							onClick={() => {
+								setActive(index);
+							}}
 						>
-							<Tab isDark={isDark}>{item.title}</Tab>
-						</NavLink>
+							<Tab isdark={isdark}>{item.title}</Tab>
+						</div>
 					))}
 				</Tabs>
-				<Routes>
-					{list.map((item) => (
-						<Route
-							path={`/${item.id}`}
-							key={item.id}
-							exact
-							element={
-								<ShowCase
-									selector={item.id}
-									isDark={isDark}
-								/>
-							}
-						/>
-					))}
-					<Route
-						path="/*"
-						element={
-							<ShowCase
-								selector={'featured'}
-								isDark={isDark}
-							/>
-						}
-					/>
-				</Routes>
-				{all && (
-					<DragDownButton
-						link="#Projects"
-						isDark={isDark}
-					/>
-				)}
+				<ShowCase
+					selector={list[active].id}
+					isdark={isdark}
+				/>
+				<DragDownButton
+					link="#Projects"
+					isdark={isdark}
+				/>
 			</Container>
 		</Suspense>
 	);
 }
 
+Portfolio.propTypes = {
+	isdark: PropTypes.bool,
+};
+
+Portfolio.defaultProps = {
+	isdark: true,
+};
+
 const Container = Styled.main`
+    display: grid;
     width: 100%;
     height: calc(100vh - 70px);
     @media (max-width: 540px) {
@@ -105,8 +100,9 @@ const PageHeading = Styled.h1`
     margin-bottom: 16px;
     font-weight: 500;
     display: block;
+    width: fit-content;
     /* color: crimson; */
-    color: ${({ isDark }) => (isDark ? '#fff' : '#15023a')};
+    color: ${({ isdark }) => (isdark ? '#fff' : '#15023a')};
     &::before {
         content: "My ";
         font-family: 'Pacifico', cursive;
@@ -119,6 +115,7 @@ const PageHeading = Styled.h1`
 `;
 
 const Tabs = Styled.ul`
+    display: grid;
     grid-template-columns: auto auto auto auto auto auto;
     margin: 0 auto;
     margin-bottom: 18px;
@@ -132,22 +129,23 @@ const Tabs = Styled.ul`
         grid-template-columns: 1fr 1fr 1fr;
     }
     /* background: rgba(255, 255, 255, 0.2); */
-    background: ${({ isDark }) =>
-		isDark ? 'rgba(2, 12, 23,0.1)' : 'rgba(255, 255, 255, 0.1)'};
-	color: ${({ isDark }) => (isDark ? '#fff' : '#15023a')};
+    background: ${({ isdark }) =>
+		isdark ? 'rgba(2, 12, 23,0.1)' : 'rgba(255, 255, 255, 0.1)'};
+	color: ${({ isdark }) => (isdark ? '#fff' : '#15023a')};
     .active li{
         color: #00c4cc !important;
 		transform: scale(1) !important;
-        background-color: ${({ isDark }) =>
-			isDark
+        background-color: ${({ isdark }) =>
+			isdark
 				? 'rgba(255, 255, 255, 0.9) !important'
 				: 'rgba(2, 12, 23, 0.9) !important'};
-        transition: all 250ms 250ms ease !important;
+        /* transition: all 250ms 250ms ease !important; */
         /* transform: scale(1); */
     }
 `;
 
 const Tab = Styled.li`
+    font-family: Poppins;
     font-size: 16px;
     @media (max-width: 540px) {
         font-size: 14px;
@@ -158,11 +156,11 @@ const Tab = Styled.li`
     padding: 7px;
     border-radius: 12px;
     text-transform: capitalize;
-    font-weight: 600;
+    font-weight: 400;
     cursor: pointer;
     height: max-content;
     transform: scale(0.9);
     margin: 0 auto;
 `;
 
-export default memo(Portfolio);
+export default Portfolio;
