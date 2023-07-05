@@ -15,7 +15,7 @@ import { Spinner } from '@components';
 // 	DarkBackground,
 // } from '@container';
 
-const {
+import {
 	Home,
 	About,
 	Portfolio,
@@ -24,7 +24,7 @@ const {
 	TopBar,
 	LightBackground,
 	DarkBackground,
-} = await import('@container');
+} from '@container'
 
 function App() {
 	const [isdark, setDark] = useState(true);
@@ -38,7 +38,7 @@ function App() {
 		AOS.refresh();
 	}, []);
 	useEffect(() => {
-		console.log('reload');
+\\
 		const aosRefresh = () =>
 			setInterval(() => {
 				AOS.refresh();

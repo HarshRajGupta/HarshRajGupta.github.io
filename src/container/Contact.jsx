@@ -59,7 +59,6 @@ function Contact({ isdark }) {
 						localStorage.setItem('M$Ppl3R#3p&Bz994C93t', 'sent');
 						localStorage.removeItem('VoTshS53jhSV22E^SRo@');
 						localStorage.removeItem('I#S&hsG02P8Q0i^70!9e');
-						console.log(result);
 					},
 					(error) => {
 						if (error.text === null || error.text === '');
@@ -67,7 +66,7 @@ function Contact({ isdark }) {
 						// else alert(error.text);
 						setStatus('try again');
 						localStorage.removeItem('M$Ppl3R#3p&Bz994C93t');
-						console.log(error.text);
+						console.error(error.text);
 						return;
 					},
 				);
@@ -79,11 +78,9 @@ function Contact({ isdark }) {
 					'_s8CAk2YdEw7gn7U3',
 				)
 				.then(
-					(result) => {
-						console.log(result);
-					},
+					() => {},
 					(error) => {
-						console.log(error.text);
+						console.error(error.text);
 					},
 				);
 		} else if (status === 'try again') {

@@ -16,7 +16,6 @@ const Data = [
 ];
 
 function About({ isdark }) {
-	console.log('About', Date.now());
 	return (
 		<Container id={'About-me'}>
 			<Wrap isdark={isdark}>

@@ -4,9 +4,7 @@ import { loadFull } from 'tsparticles';
 const particlesInit = async (main) => {
 	await loadFull(main);
 };
-const particlesLoaded = () => {
-	console.log('Welcome');
-};
+const particlesLoaded = () => {};
 
 function Background() {
 	const __COUNT =
