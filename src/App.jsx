@@ -38,7 +38,6 @@ function App() {
 		AOS.refresh();
 	}, []);
 	useEffect(() => {
-\\
 		const aosRefresh = () =>
 			setInterval(() => {
 				AOS.refresh();
@@ -110,14 +109,13 @@ const Sections = styled.main`
 	max-width: 100vw;
 	overflow-x: hidden;
 	width: ${(props) => (props.fullscreen ? '100vw' : 'calc(100vw - 204px)')};
+	@media (max-width: 540px) {
+		width: 100vw;
+	}
 	transition: width 0.5s ease-in-out;
 	height: calc(100vh - 70px);
 	position: relative;
 	top: 70px;
-	@media (min-width: 541px) {
-		width: ${(props) =>
-			props.fullscreen ? '100vw' : 'calc(100vw - 204px)'};
-	}
 	display: grid;
 	/* grid-template-columns: repeat(1, 1fr); */
 	overflow-y: scroll;

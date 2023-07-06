@@ -1,39 +1,49 @@
-import { memo } from 'react';
 import styled from 'styled-components';
-// import { Zoom } from 'react-awesome-reveal';
 import PropTypes from 'prop-types';
 
 function Project({ data, isdark }) {
 	return (
 		<Container>
 			<div data-aos={`zoom-in`}>
-				<Item isdark={isdark}>
-					<Left>
-						<LeftContainer>
-							<IconContainer>
-								<Icon
-									src={data.icon}
-									alt={data.title}
-								/>
-							</IconContainer>
-							<h1>{data.title}</h1>
-							<p className="desc">{data.desc}</p>
-							<a
-								target="_blank"
-								href={data.url}
-								rel="noreferrer"
-							>
-								Link
-							</a>
-						</LeftContainer>
-					</Left>
-					<Right>
-						<Image
-							src={data.image}
-							alt={data.title}
-						/>
-					</Right>
-				</Item>
+				{data.type === 'project' ? (
+					<Item isdark={isdark}>
+						<Left>
+							<LeftContainer>
+								<IconContainer>
+									<Icon
+										src={data.icon}
+										alt={data.title}
+									/>
+								</IconContainer>
+								<h1>{data.title}</h1>
+								<p className="desc">{data.desc}</p>
+								<a
+									target="_blank"
+									href={data.link}
+									rel="noreferrer"
+								>
+									Link
+								</a>
+							</LeftContainer>
+						</Left>
+						<Right>
+							<Image
+								src={data.image}
+								loading="lazy"
+								alt={data.title}
+							/>
+						</Right>
+					</Item>
+				) : (
+					<Photo
+						src={data.image}
+						alt={data.title}
+						onClick={() => {
+							window.open(data.link, '_blank');
+						}}
+						loading="lazy"
+					/>
+				)}
 			</div>
 		</Container>
 	);
@@ -48,9 +58,19 @@ Project.defaultProps = {
 	isdark: false,
 };
 
+const Photo = styled.img`
+	width: 764px;
+	height: auto;
+	max-width: 50vw;
+	max-height: 75vh;
+	object-fit: contain;
+	cursor: pointer;
+	overflow: hidden;
+`;
+
 const Container = styled.div`
 	width: max-content;
-	/* height: calc(100vh - 70px); */
+	max-width: 75vw !important;
 	height: 100%;
 	display: flex;
 	align-items: center;
@@ -63,21 +83,27 @@ const Container = styled.div`
 
 const Item = styled.div`
 	width: 764px;
-	height: 360px;
+	height: 400px;
 	background-color: ${({ isdark }) =>
-		isdark ? 'rgba(255, 255, 255, 0.9)' : 'rgba(0, 0, 0, 0.7)'};
+		isdark ? 'rgba(255, 255, 255, 0.9)' : 'rgba(0, 0, 0, 0.9)'};
 	color: ${({ isdark }) => (!isdark ? '#fff' : '#000')};
 	border-radius: 20px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	max-width: 75vw;
-	max-height: 75vh;
+	max-height: 50vh;
+	@media (max-width: 540px) {
+		max-height: 40vh;
+	}
+	@media (max-width: 380px) {
+		max-height: 33vh;
+	}
 `;
 
 const Left = styled.div`
 	flex: 4;
-	height: 80%;
+	height: 90%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -93,21 +119,40 @@ const LeftContainer = styled.div`
 	h1 {
 		font-size: 23px;
 		font-weight: 600;
+		@media (max-width: 540px) {
+			font-size: 16px;
+		}
+		@media (max-width: 380px) {
+			font-size: 12px;
+		}
 	}
 	p {
 		margin: 8px 0;
 		max-width: 100%;
 		max-height: 144px;
-		font-style: italic;
-		/* font-family: 'Montserrat', sans-serif; */
-		font-family: 'Ubuntu Mono', monospace;
+		/* font-style: italic; */
+		font-family: 'Comic Sans MS', cursive, monospace;
 		font-weight: 300;
-		font-size: 10px;
-		line-height: 16px;
+		font-size: 14px;
+		line-height: 20px;
 		letter-spacing: 0.6px;
+		@media (max-width: 540px) {
+			font-size: 11px;
+			line-height: 16px;
+		}
+		@media (max-width: 380px) {
+			font-size: 8px;
+			line-height: 14px;
+		}
 	}
 	a {
 		font-size: 16px;
+		@media (max-width: 540px) {
+			font-size: 12px;
+		}
+		@media (max-width: 380px) {
+			font-size: 10px;
+		}
 		font-weight: 600;
 		text-decoration: underline;
 		cursor: pointer;
@@ -118,6 +163,14 @@ const LeftContainer = styled.div`
 const IconContainer = styled.div`
 	width: 40px;
 	height: 40px;
+	@media (max-width: 540px) {
+		width: 30px;
+		height: 30px;
+	}
+	@media (max-width: 380px) {
+		width: 20px;
+		height: 20px;
+	}
 	border-radius: 50%;
 	background-color: rgb(0, 196, 204);
 	display: flex;
@@ -128,6 +181,12 @@ const IconContainer = styled.div`
 
 const Icon = styled.img`
 	width: 25px;
+	@media (max-width: 540px) {
+		width: 20px;
+	}
+	@media (max-width: 380px) {
+		width: 15px;
+	}
 `;
 
 const Right = styled.div`
@@ -140,8 +199,9 @@ const Right = styled.div`
 `;
 
 const Image = styled.img`
-	width: 400px;
+	width: 480px;
+	max-width: 30vw;
 	transform: rotate(-10deg);
 `;
 
-export default memo(Project);
+export default Project;

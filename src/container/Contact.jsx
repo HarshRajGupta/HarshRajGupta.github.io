@@ -53,7 +53,7 @@ function Contact({ isdark }) {
 					'_s8CAk2YdEw7gn7U3',
 				)
 				.then(
-					(result) => {
+					() => {
 						// alert('Mail sent successfully!!!');
 						setStatus('sent');
 						localStorage.setItem('M$Ppl3R#3p&Bz994C93t', 'sent');

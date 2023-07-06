@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import { ProjectPosts } from '@assets/data';
+import { ProjectList } from '@assets/data';
 import { Project, DragDownButton } from '@components';
 import Styled from 'styled-components';
 import PropTypes from 'prop-types';
@@ -20,7 +20,7 @@ function Projects({ isdark }) {
 				slidesPerView={1}
 				centeredSlides={true}
 				autoplay={{
-					delay: 1000,
+					delay: 2500,
 					disableOnInteraction: true,
 				}}
 				loop={true}
@@ -31,7 +31,7 @@ function Projects({ isdark }) {
 				modules={[Autoplay, Pagination, Navigation]}
 				className="mySwiper"
 			>
-				{ProjectPosts.map((project) => (
+				{ProjectList.map((project) => (
 					<SwiperSlide key={project.id}>
 						<Project
 							data={project}
@@ -60,13 +60,12 @@ Projects.defaultProps = {
 const Container = Styled.div`
 	color: #15023a;
 	display: grid;
+
     * {
         overflow: visible;
         max-width: 80vw;
         max-height: calc(100vh - 70px);
 		@media (max-width: 540px) {
-			max-width: 100vw;
-			max-height: calc(100vh - 56px);
 		}
     }
 	z-index: 1;
@@ -79,7 +78,8 @@ const Container = Styled.div`
 		background-size: cover;
 		background-repeat: no-repeat;
 		* {
-			max-width: 100%;
+			max-width: 100vw;
+			max-height: calc(100vh - 56px);
 		}
     }
 `;

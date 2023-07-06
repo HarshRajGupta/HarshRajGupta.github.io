@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 const Data = {
 	email: 'HarshR4jGupta@gmail.com',
 	number: '+917607642202',
-	resume: 'https://drive.google.com/file/d/1g0lGlqeTgYr0o5zz8gMmHQZ7w8mkkwMa',
+	resume: 'https://drive.google.com/file/d/1Ajxq0J7MF7ySTEbG03mCYT41fG3_4xap/view?usp=drive_link',
 };
 
 function TopBar({ menuOpen, setMenuOpen, isdark, setDark }) {

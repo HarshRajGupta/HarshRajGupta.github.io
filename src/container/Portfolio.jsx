@@ -116,17 +116,20 @@ const PageHeading = Styled.h1`
 
 const Tabs = Styled.ul`
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-columns: repeat(6, auto);
     margin: 0 auto;
     margin-bottom: 18px;
     width: 69vw;
     justify-content: space-around;
     align-items: center;
+	div {
+		width: 100%;
+	}
     @media (max-width: 768px) {
         width: 85vw;
     }
     @media (max-width: 540px) {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: repeat(3, auto);
     }
     /* background: rgba(255, 255, 255, 0.2); */
     background: ${({ isdark }) =>
@@ -146,15 +149,19 @@ const Tabs = Styled.ul`
 
 const Tab = Styled.li`
     font-family: Poppins;
-    font-size: 16px;
+    font-size: 14px;
+	padding: 7px;
+	border-radius: 12px;
     @media (max-width: 540px) {
-        font-size: 14px;
+        font-size: 12px;
+		padding: 5px;
+		border-radius: 8px;
     }
     @media (max-width: 300px) {
-        font-size: 12px;
+        font-size: 10px;
+		padding: 3px;
+		border-radius: 6px;
     }
-    padding: 7px;
-    border-radius: 12px;
     text-transform: capitalize;
     font-weight: 400;
     cursor: pointer;

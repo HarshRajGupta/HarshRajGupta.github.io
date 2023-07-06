@@ -128,9 +128,10 @@ const AboutMe = Styled.div`
 	border-radius: 2rem;
 	padding: 1rem;
 	p {
-		display: grid;
+		display: inline-block;
 		margin: 0 auto;
 		max-width: 76vw;
+		width: 100%;
 		@media (max-width: 540px) {
 			width: 80vw;
 		}
@@ -168,8 +169,11 @@ const AboutMe = Styled.div`
 		overflow-y: visible;
 		/* padding: 32px; */
 		span {
-			margin: 0 auto;
+			width: 100%;
+			display: flex;
+			/* margin: 0 auto; */
 			text-align: center;
+			justify-content: center;
 		}
 	}
 `;

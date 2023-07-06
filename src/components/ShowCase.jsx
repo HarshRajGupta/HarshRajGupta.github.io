@@ -7,6 +7,7 @@ import {
 	CertificatePosts,
 	SkillsPosts,
 	LanguagesPosts,
+	ProjectPosts,
 } from '@assets/data';
 import { Spinner, ShortSpinner } from '@components';
 import PropTypes from 'prop-types';
@@ -27,6 +28,9 @@ function ShowCase({ selector, isdark }) {
 			case 'languages':
 				setData(LanguagesPosts);
 				break;
+			case 'project':
+				setData(ProjectPosts);
+				break;
 			default:
 				setData(FeaturedPosts);
 		}
@@ -45,7 +49,7 @@ function ShowCase({ selector, isdark }) {
 						key={index}
 						fallback={<Spinner />}
 					>
-						<div
+						<a
 							data-aos={
 								index % 3 === 2
 									? 'zoom-in-left'
@@ -53,6 +57,9 @@ function ShowCase({ selector, isdark }) {
 									? 'zoom-in-up'
 									: 'zoom-in-right'
 							}
+							target="_blank"
+							href={item.link}
+							rel="noreferrer"
 						>
 							<Item
 								bgcolor={
@@ -74,8 +81,9 @@ function ShowCase({ selector, isdark }) {
 									isdark={isdark}
 									loading="lazy"
 								/>
+								<h1>{item.title}</h1>
 							</Item>
-						</div>
+						</a>
 					</Suspense>
 				))}
 			</ItemContainer>
@@ -117,8 +125,14 @@ const Item = Styled.div`
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     position: relative;
     background: ${(props) => props.bgcolor};
+	border: 10px solid;
+	border-image-slice: 1;
+	border-width: 2px;
+	border-image-source: ${(props) =>
+		`linear-gradient(to right, ${props.bgcolor})`};
     h1 {
-        width: fit-content;
+		display: grid;
+        width: 100%;
         font-size: 13px;
         text-align: center;
         font-family: 'Pacifico', cursive;
@@ -127,9 +141,11 @@ const Item = Styled.div`
         opacity: 0;
         height: 100%;
         align-items: center;
+		justify-content: center;
         background-color: rgba(21, 2, 58, 0.69);
         color: #fff;
         cursor: pointer;
+		z-index:2;
         /* transition: hover 0.1s 0.4s ease-in-out; */
     }
     border-radius: 16px;
