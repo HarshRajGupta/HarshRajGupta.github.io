@@ -5,24 +5,28 @@ import PropTypes from 'prop-types';
 function HamBurger({ show, isdark, setDark }) {
 	const menuList = [
 		{
-			id: 'home',
+			id: '#Home',
 			title: 'home',
 		},
 		{
-			id: 'about',
+			id: '#About-me',
 			title: 'about me',
 		},
 		{
-			id: 'portfolio',
+			id: '#Portfolio',
 			title: 'portfolio',
 		},
 		{
-			id: 'projects',
+			id: '#Projects',
 			title: 'projects',
 		},
 		{
-			id: 'contact',
+			id: '#Contact-me',
 			title: 'contact',
+		},
+		{
+			id: 'https://drive.google.com/file/d/1Ajxq0J7MF7ySTEbG03mCYT41fG3_4xap/view?usp=drive_link',
+			title: 'resume',
 		},
 	];
 	return (
@@ -39,7 +43,7 @@ function HamBurger({ show, isdark, setDark }) {
 					<Item key={index}>
 						<a
 							className="link"
-							href={`#${item.id}`}
+							href={item.id}
 						>
 							{item.title}
 						</a>
@@ -51,15 +55,15 @@ function HamBurger({ show, isdark, setDark }) {
 }
 
 HamBurger.propTypes = {
-    show: PropTypes.bool,
+	show: PropTypes.bool,
 	isdark: PropTypes.bool,
 	setDark: PropTypes.func,
 };
 
 HamBurger.defaultProps = {
-    show: false,
-    isdark: false,
-}
+	show: false,
+	isdark: false,
+};
 
 const Container = Styled.div`
     display: grid;

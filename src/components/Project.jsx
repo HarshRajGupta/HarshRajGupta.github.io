@@ -59,13 +59,13 @@ Project.defaultProps = {
 };
 
 const Photo = styled.img`
-	width: 764px;
+	width: 720px;
 	height: auto;
 	max-width: 50vw;
-	max-height: 75vh;
 	object-fit: contain;
 	cursor: pointer;
 	overflow: hidden;
+	scale: 0.95;
 `;
 
 const Container = styled.div`
@@ -78,6 +78,12 @@ const Container = styled.div`
 	justify-content: center;
 	* {
 		overflow: hidden !important;
+	}
+	scale: 0.95;
+	transition: all 0.1s ease-in-out;
+	&:hover {
+		scale: 1;
+		transition: all 0.2s ease-in-out;
 	}
 `;
 

@@ -15,6 +15,10 @@ const list = [
 		title: 'Achievements',
 	},
 	{
+		id: 'project',
+		title: 'Projects',
+	},
+	{
 		id: 'certifications',
 		title: 'Certifications',
 	},
@@ -25,10 +29,6 @@ const list = [
 	{
 		id: 'languages',
 		title: 'Languages',
-	},
-	{
-		id: 'project',
-		title: 'Projects',
 	},
 ];
 

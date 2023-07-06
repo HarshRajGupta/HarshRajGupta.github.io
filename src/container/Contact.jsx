@@ -4,6 +4,7 @@ import Spinner from '@components/Spinner';
 import emailjs from '@emailjs/browser';
 import Styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 
 function Contact({ isdark }) {
 	const form = useRef();
@@ -54,16 +55,17 @@ function Contact({ isdark }) {
 				)
 				.then(
 					() => {
-						// alert('Mail sent successfully!!!');
+						toast.success('Mail sent successfully✨');
 						setStatus('sent');
 						localStorage.setItem('M$Ppl3R#3p&Bz994C93t', 'sent');
 						localStorage.removeItem('VoTshS53jhSV22E^SRo@');
 						localStorage.removeItem('I#S&hsG02P8Q0i^70!9e');
 					},
 					(error) => {
-						if (error.text === null || error.text === '');
-						// alert('Failed to send email');
-						// else alert(error.text);
+						console.error(error);
+						toast.error('Failed to send email');
+						if (error.text !== null || error.text !== '')
+							toast.error(error.text);
 						setStatus('try again');
 						localStorage.removeItem('M$Ppl3R#3p&Bz994C93t');
 						console.error(error.text);

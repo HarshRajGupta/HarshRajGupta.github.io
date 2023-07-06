@@ -5,6 +5,7 @@ import DownloadIcon from '@mui/icons-material/Download';
 import Theme from '@components/ThemeSwitch';
 import HamBurger from '@components/HamBurger';
 import PropTypes from 'prop-types';
+import { toast } from 'react-toastify';
 
 const Data = {
 	email: 'HarshR4jGupta@gmail.com',
@@ -25,7 +26,14 @@ function TopBar({ menuOpen, setMenuOpen, isdark, setDark }) {
 			/>
 			<Wrap>
 				<LeftBar>
-					<MyName isdark={isdark}>harsh.</MyName>
+					<MyName
+						onClick={() => {
+							window.location.href = '#Home';
+						}}
+						isdark={isdark}
+					>
+						harsh.
+					</MyName>
 					<Theme
 						setDark={setDark}
 						isdark={isdark}
@@ -35,16 +43,16 @@ function TopBar({ menuOpen, setMenuOpen, isdark, setDark }) {
 							className="icon"
 							onClick={() => {
 								navigator.clipboard.writeText(Data.number);
-								alert(
-									`Mobile Number has been copied on the clipboard`,
+								toast.success(
+									`Mobile Number has been copied✨`,
 								);
 							}}
 						/>
 						<ItemText
 							onClick={() => {
 								navigator.clipboard.writeText(Data.number);
-								alert(
-									`Mobile Number has been copied on the clipboard`,
+								toast.success(
+									`Mobile Number has been copied✨`,
 								);
 							}}
 						>
@@ -56,17 +64,13 @@ function TopBar({ menuOpen, setMenuOpen, isdark, setDark }) {
 							className="icon"
 							onClick={() => {
 								navigator.clipboard.writeText(Data.email);
-								alert(
-									`Email id has been copied on the clipboard`,
-								);
+								toast.success(`Email id has been copied✨`);
 							}}
 						/>
 						<ItemText
 							onClick={() => {
 								navigator.clipboard.writeText(Data.email);
-								alert(
-									`Email id has been copied on the clipboard`,
-								);
+								toast.success(`Email id has been copied✨`);
 							}}
 						>
 							{Data.email}

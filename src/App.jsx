@@ -1,19 +1,11 @@
 import { Suspense, useState, useEffect } from 'react';
 import styled from 'styled-components';
-import 'aos/dist/aos.css';
+import { ToastContainer } from 'react-toastify';
 import AOS from 'aos';
 import { Spinner } from '@components';
 
-// import {
-// 	Home,
-// 	About,
-// 	Portfolio,
-// 	Projects,
-// 	Contact,
-// 	TopBar,
-// 	LightBackground,
-// 	DarkBackground,
-// } from '@container';
+import 'aos/dist/aos.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 import {
 	Home,
@@ -24,7 +16,7 @@ import {
 	TopBar,
 	LightBackground,
 	DarkBackground,
-} from '@container'
+} from '@container';
 
 function App() {
 	const [isdark, setDark] = useState(true);
@@ -95,6 +87,7 @@ function App() {
 					{isdark ? <DarkBackground /> : <LightBackground />}
 					{/* <ChatBot /> */}
 				</Container>
+				<ToastContainer />
 			</div>
 		</Suspense>
 	);
