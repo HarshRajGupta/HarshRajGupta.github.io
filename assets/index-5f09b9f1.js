@@ -15901,7 +15901,7 @@ const i_ = G.img`
 	margin: 0 auto;
 	justify-content: center;
 	* {
-		overflow: hidden !important;
+		/* overflow: hidden; */
 	}
 	scale: 0.95;
 	transition: all 0.1s ease-in-out;
@@ -15911,8 +15911,9 @@ const i_ = G.img`
 	}
 `,
   s_ = G.div`
-	width: 764px;
-	height: 400px;
+	/* width: 764px; */
+	/* height: 400px; */
+	padding: min(3vw,16px);
 	background-color: ${({ isdark: t }) =>
     t ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.9)"};
 	color: ${({ isdark: t }) => (t ? "#000" : "#fff")};
@@ -15920,8 +15921,10 @@ const i_ = G.img`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	max-width: 75vw;
-	max-height: 50vh;
+	max-width: 70vw !important;
+	/* min-height: 45vh !important; */
+	max-height: 60vh !important;
+	overflow: hidden !important; 
 	@media (max-width: 540px) {
 		max-height: 40vh;
 	}
@@ -15931,19 +15934,22 @@ const i_ = G.img`
 `,
   o_ = G.div`
 	flex: 4;
-	height: 90%;
-	display: flex;
+	width: 100%;
+	height: 100%;
+	display: grid;
 	align-items: center;
 	justify-content: center;
 `,
   a_ = G.div`
-	width: 90%;
-	height: max-content;
-	max-height: 90%;
+	width: 100%;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: space-evenly;
+	/* align-items: center; */
 	h1 {
+		display: grid;
+		align-items: center;
 		font-size: 23px;
 		font-weight: 600;
 		@media (max-width: 540px) {
@@ -15954,15 +15960,18 @@ const i_ = G.img`
 		}
 	}
 	p {
+		display: grid;
+		align-items: center;
 		margin: 8px 0;
-		max-width: 100%;
-		max-height: 144px;
+		max-width: 22vw;
+		max-height: 30vh;
 		/* font-style: italic; */
 		font-family: 'Comic Sans MS', cursive, monospace;
 		font-weight: 300;
 		font-size: 14px;
 		line-height: 20px;
 		letter-spacing: 0.6px;
+		overflow-y: auto;
 		@media (max-width: 540px) {
 			font-size: 11px;
 			line-height: 16px;
@@ -15973,6 +15982,8 @@ const i_ = G.img`
 		}
 	}
 	a {
+		display: grid;
+		align-items: center;
 		font-size: 16px;
 		@media (max-width: 540px) {
 			font-size: 12px;
@@ -15987,6 +15998,8 @@ const i_ = G.img`
 	}
 `,
   l_ = G.div`
+	display: grid;
+	align-items: center;
 	width: 40px;
 	height: 40px;
 	@media (max-width: 540px) {
@@ -15999,8 +16012,6 @@ const i_ = G.img`
 	}
 	border-radius: 50%;
 	background-color: rgb(0, 196, 204);
-	display: flex;
-	align-items: center;
 	justify-content: center;
 	margin-bottom: 8px;
 `,
@@ -16015,16 +16026,21 @@ const i_ = G.img`
 `,
   c_ = G.div`
 	flex: 8;
-	height: 100%;
+	height: max-content;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	overflow: hidden;
 `,
   d_ = G.img`
 	width: 480px;
-	max-width: 30vw;
-	transform: rotate(-10deg);
+	max-width: 30vw !important;
+	transform: rotate(-15deg);
+	margin: 3vw 0 !important;
+	transition: transform 0.1s ease-in-out;
+	&:hover {
+		transform: rotate(0deg);
+		transition: transform 0.2s ease-in-out;
+	}
 `,
   yh = [
     {
@@ -18677,7 +18693,7 @@ function Jd({ isdark: t }) {
                       "MERN Stack Developer",
                       "SIH 2022 Finalist",
                       "ICPC 21-22 Regionalist",
-                      "Speacialist @CF",
+                      "Specialist @CF",
                       "Codechef 4*",
                     ],
                     autoStart: !0,
@@ -23742,6 +23758,7 @@ function nf({ isdark: t }) {
         slidesPerView: 1,
         centeredSlides: !0,
         autoplay: { delay: 2500, disableOnInteraction: !0 },
+        spaceBetween: 1e3,
         loop: !0,
         pagination: { clickable: !0 },
         navigation: !0,
@@ -33426,7 +33443,7 @@ function gz() {
           },
         },
         links: {
-          color: { value: "#000" },
+          color: { value: "#5ae2f9" },
           consent: !1,
           distance: 100,
           enable: !0,
@@ -33659,13 +33676,13 @@ function wz() {
           },
         },
         links: {
-          color: { value: "#fff" },
+          color: { value: "#5ae2f9" },
           consent: !1,
           distance: 100,
           enable: !0,
           frequency: 1,
           opacity: 1,
-          shadow: { blur: 8, color: { value: "#5ae2f9" }, enable: !0 },
+          shadow: { blur: 16, color: { value: "#5ae2f9" }, enable: !0 },
           triangles: { enable: !1, frequency: 1 },
           width: 1,
           warp: !1,
@@ -33733,7 +33750,7 @@ function wz() {
           path: !1,
         },
         shadow: {
-          blur: 8,
+          blur: 10,
           color: { value: "#5ae2f9" },
           enable: !0,
           offset: { x: 0, y: 0 },
